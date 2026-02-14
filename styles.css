@@ -647,37 +647,51 @@ strong {
   }
 }
 
-/* Tablet/Desktop: image très grande, plus d'espace texte */
+/* Tablet/Desktop: image ÉNORME et imposante */
 @media (min-width: 768px) {
   .section-hero--bd {
     padding: var(--spacing-3xl) 0 0 0 !important;
   }
 
   .section-hero--bd .section-hero-content {
-    min-height: 580px;
+    min-height: 650px;
   }
 
   .section-hero--bd .section-hero-text {
-    max-width: 58%;
+    max-width: 52%;
     padding-right: var(--spacing-2xl);
     padding-bottom: var(--spacing-3xl);
   }
 
   .section-hero--bd .section-hero-image img {
-    height: min(75vh, 680px);
+    height: 85vh;
+    max-height: none;
     border-top-left-radius: var(--radius-xl);
   }
 
   .section-hero--bd .section-hero-image::before {
-    inset: -100px -140px -100px -140px;
-    filter: blur(30px);
+    inset: -120px -160px -120px -160px;
+    filter: blur(35px);
   }
 }
 
-/* Desktop large: image maximale */
+/* Desktop large: image MAXIMALE (plein écran) */
 @media (min-width: 1024px) {
+  .section-hero--bd .section-hero-content {
+    min-height: 720px;
+  }
+
+  .section-hero--bd .section-hero-text {
+    max-width: 50%;
+  }
+
   .section-hero--bd .section-hero-image img {
-    height: min(78vh, 720px);
+    height: 90vh;
+  }
+
+  .section-hero--bd .section-hero-image::before {
+    inset: -140px -180px -140px -180px;
+    filter: blur(40px);
   }
 }
 
