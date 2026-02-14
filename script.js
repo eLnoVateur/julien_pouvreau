@@ -11,6 +11,7 @@
   // =====================================================
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
+  const homeNavCards = document.querySelectorAll(".home-nav-card");
 
   // =====================================================
   // Fonction pour activer un onglet
@@ -51,6 +52,36 @@
   });
 
   // =====================================================
+  // Gestionnaire de clic sur les cartes de navigation home
+  // =====================================================
+  homeNavCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const targetTab = this.getAttribute("data-target");
+      if (targetTab) {
+        activateTab(targetTab);
+      }
+    });
+  });
+
+  // =====================================================
+  // Gestionnaire de clic sur les boutons dans les heros de section
+  // =====================================================
+  document.addEventListener("click", function (e) {
+    // Buttons with data-target attribute (like CTA buttons in section heroes)
+    if (e.target.tagName === "BUTTON" && e.target.getAttribute("data-target")) {
+      const targetTab = e.target.getAttribute("data-target");
+      if (
+        targetTab &&
+        ["home", "bd", "hospitality", "precursys", "portfolio"].includes(
+          targetTab,
+        )
+      ) {
+        activateTab(targetTab);
+      }
+    }
+  });
+
+  // =====================================================
   // Gestion des liens internes entre onglets
   // =====================================================
   document.addEventListener("click", function (e) {
@@ -58,10 +89,12 @@
     if (e.target.tagName === "A" && e.target.getAttribute("href")) {
       const href = e.target.getAttribute("href");
 
-      // Si c'est une ancre vers un onglet (#bd, #hospitality, etc.)
+      // Si c'est une ancre vers un onglet (#home, #bd, #hospitality, etc.)
       if (
         href.startsWith("#") &&
-        ["#bd", "#hospitality", "#precursys", "#portfolio"].includes(href)
+        ["#home", "#bd", "#hospitality", "#precursys", "#portfolio"].includes(
+          href,
+        )
       ) {
         e.preventDefault();
         const tabId = href.substring(1); // Enlever le #
@@ -78,14 +111,14 @@
     const hash = window.location.hash.substring(1); // Enlever le #
 
     // Liste des onglets valides
-    const validTabs = ["bd", "hospitality", "precursys", "portfolio"];
+    const validTabs = ["home", "bd", "hospitality", "precursys", "portfolio"];
 
     // Activer l'onglet approprié
     if (hash && validTabs.includes(hash)) {
       activateTab(hash);
     } else {
-      // Par défaut, activer l'onglet BD
-      activateTab("bd");
+      // Par défaut, activer l'onglet HOME
+      activateTab("home");
     }
   }
 
@@ -94,7 +127,7 @@
   // =====================================================
   window.addEventListener("hashchange", function () {
     const hash = window.location.hash.substring(1);
-    const validTabs = ["bd", "hospitality", "precursys", "portfolio"];
+    const validTabs = ["home", "bd", "hospitality", "precursys", "portfolio"];
 
     if (hash && validTabs.includes(hash)) {
       activateTab(hash);

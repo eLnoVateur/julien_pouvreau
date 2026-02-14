@@ -18,14 +18,33 @@
         <p class="site-tagline">Business Developer • Hôtellerie • Tech</p>
 
         <!-- Tab Navigation Pills -->
-        <nav class="tabs-nav" role="navigation" aria-label="Navigation principale">
-          <button class="tab-btn active" data-tab="bd" aria-label="CV Business Developer">
+        <nav
+          class="tabs-nav"
+          role="navigation"
+          aria-label="Navigation principale"
+        >
+          <button class="tab-btn active" data-tab="home" aria-label="Accueil">
+            Accueil
+          </button>
+          <button
+            class="tab-btn"
+            data-tab="bd"
+            aria-label="CV Business Developer"
+          >
             Business Developer
           </button>
-          <button class="tab-btn" data-tab="hospitality" aria-label="CV Hôtellerie">
+          <button
+            class="tab-btn"
+            data-tab="hospitality"
+            aria-label="CV Hôtellerie"
+          >
             Hôtellerie
           </button>
-          <button class="tab-btn" data-tab="precursys" aria-label="Projets PrecurSys">
+          <button
+            class="tab-btn"
+            data-tab="precursys"
+            aria-label="Projets PrecurSys"
+          >
             PrecurSys
           </button>
           <button class="tab-btn" data-tab="portfolio" aria-label="Portfolio">
@@ -36,84 +55,164 @@
     </header>
 
     <main>
-      <!-- Business Developer Tab -->
-      <section id="bd" class="tab-content active">
+      <!-- HOME TAB -->
+      <section id="home" class="tab-content active">
         <div class="container">
-          <!-- Hero -->
-          <div class="hero-section">
-            <div class="badge">Reconversion • Digital • Alternance</div>
-            <h2 class="page-title">Business Developer</h2>
-            <p class="hero-subtitle">
-              20 ans d'expérience terrain | Compétences transférables B2B
+          <div class="home-simple">
+            <h2 class="home-title">Julien Pouvreau</h2>
+            <p class="home-subtitle">
+              Reconversion — Business Developer (Alternance)
             </p>
-            <a href="assets/CV-Julien-POUVREAU-BD.pdf" class="btn-primary" download>
-              Télécharger le CV PDF
-            </a>
-          </div>
+            <p class="home-intro">
+              Après 20 ans de relation client et vente en restauration, je me
+              reconvertis vers le business development. J'apporte rigueur, sens
+              du service, et une solide expérience terrain transférable en B2B.
+            </p>
 
+            <div class="home-nav-cards">
+              <button class="home-nav-card" data-target="bd">
+                <div class="home-nav-icon">💼</div>
+                <h3>Business Developer</h3>
+                <p>CV reconversion, compétences B2B</p>
+              </button>
+              <button class="home-nav-card" data-target="hospitality">
+                <div class="home-nav-icon">🍽️</div>
+                <h3>Hôtellerie</h3>
+                <p>20 ans de parcours restauration</p>
+              </button>
+              <button class="home-nav-card" data-target="precursys">
+                <div class="home-nav-icon">⚙️</div>
+                <h3>PrecurSys</h3>
+                <p>Outils digitaux & automatisation</p>
+              </button>
+              <button class="home-nav-card" data-target="portfolio">
+                <div class="home-nav-icon">📁</div>
+                <h3>Portfolio</h3>
+                <p>Documents, projets, réalisations</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Business Developer Tab -->
+      <section id="bd" class="tab-content">
+        <!-- BIG HERO FOR BD -->
+        <div class="section-hero section-hero--bd">
+          <div class="container">
+            <div class="section-hero-content">
+              <div class="section-hero-text">
+                <div class="badge">Reconversion • Digital • Alternance</div>
+                <h2 class="section-hero-title">Business Developer</h2>
+                <p class="section-hero-subtitle">
+                  20 ans d'expérience terrain en relation client et vente |
+                  Compétences transférables B2B
+                </p>
+                <div class="section-hero-cta-group">
+                  <a
+                    href="assets/CV-Julien-POUVREAU-BD.pdf"
+                    class="btn-primary"
+                    download
+                  >
+                    Télécharger CV BD (PDF)
+                  </a>
+                  <button class="btn-secondary" data-target="portfolio">
+                    Portfolio
+                  </button>
+                </div>
+              </div>
+              <div class="section-hero-image">
+                <img
+                  src="assets/img/julien-hero.png"
+                  alt="Julien Pouvreau - Business Developer"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
           <!-- Projet Professionnel -->
           <section class="content-section">
             <h3 class="section-title">Projet Professionnel</h3>
             <div class="text-box">
               <p>
-                Après 20 ans d'expérience terrain en relation client et vente dans la restauration,
-                je me reconvertis vers le business development dans le digital. Mon parcours m'a
-                permis de développer des compétences clés transférables : écoute active,
-                identification des besoins clients, argumentation commerciale, gestion des
-                objections, et travail sous pression.
+                Après 20 ans d'expérience terrain en relation client et vente
+                dans la restauration, je me reconvertis vers le business
+                development dans le digital. Mon parcours m'a permis de
+                développer des compétences clés transférables : écoute active,
+                identification des besoins clients, argumentation commerciale,
+                gestion des objections, et travail sous pression.
               </p>
               <p>
-                Je recherche une <strong>alternance</strong> pour apprendre la méthode BD et
-                l'appliquer dans un environnement B2B ou SaaS.
+                Je recherche une <strong>alternance</strong> pour apprendre la
+                méthode BD et l'appliquer dans un environnement B2B ou SaaS.
               </p>
             </div>
           </section>
 
           <!-- Skills Grid -->
           <section class="content-section">
-            <h3 class="section-title">Compétences Transférables Business Development</h3>
+            <h3 class="section-title">
+              Compétences Transférables Business Development
+            </h3>
             <div class="skills-grid">
               <div class="skill-card">
                 <h4>Relation client & satisfaction</h4>
                 <p>
-                  20 ans d'écoute active, reformulation des besoins, gestion des attentes et
-                  fidélisation
+                  20 ans d'écoute active, reformulation des besoins, gestion des
+                  attentes et fidélisation
                 </p>
               </div>
               <div class="skill-card">
                 <h4>Vente consultative</h4>
                 <p>
-                  Recommandations personnalisées, upsell naturel, argumentation adaptée au profil
-                  client
+                  Recommandations personnalisées, upsell naturel, argumentation
+                  adaptée au profil client
                 </p>
               </div>
               <div class="skill-card">
                 <h4>Gestion des objections</h4>
                 <p>
-                  Réponse aux demandes spéciales, contraintes clients, avec solutions adaptées
+                  Réponse aux demandes spéciales, contraintes clients, avec
+                  solutions adaptées
                 </p>
               </div>
               <div class="skill-card">
                 <h4>Résistance au rythme</h4>
-                <p>Gestion de forte affluence (100+ couverts), priorisation, efficacité</p>
+                <p>
+                  Gestion de forte affluence (100+ couverts), priorisation,
+                  efficacité
+                </p>
               </div>
               <div class="skill-card">
                 <h4>Communication</h4>
                 <p>
-                  Interface clients-équipe, transmission d'informations claires et précises
+                  Interface clients-équipe, transmission d'informations claires
+                  et précises
                 </p>
               </div>
               <div class="skill-card">
                 <h4>Discipline et fiabilité</h4>
-                <p>Rigueur dans le suivi des processus, ponctualité, respect des engagements</p>
+                <p>
+                  Rigueur dans le suivi des processus, ponctualité, respect des
+                  engagements
+                </p>
               </div>
               <div class="skill-card">
                 <h4>Gestion financière</h4>
-                <p>Caisses, logiciels POS, suivi des transactions, trésorerie quotidienne</p>
+                <p>
+                  Caisses, logiciels POS, suivi des transactions, trésorerie
+                  quotidienne
+                </p>
               </div>
               <div class="skill-card">
                 <h4>Polyvalence</h4>
-                <p>Capacité à gérer plusieurs tâches simultanées et s'adapter aux imprévus</p>
+                <p>
+                  Capacité à gérer plusieurs tâches simultanées et s'adapter aux
+                  imprévus
+                </p>
               </div>
             </div>
           </section>
@@ -128,16 +227,27 @@
                 <div class="experience-title">
                   Projet personnel — Productivité commerciale & contenus
                 </div>
-                <div class="experience-company">PrecurSys • CDD temps partiel</div>
+                <div class="experience-company">
+                  PrecurSys • CDD temps partiel
+                </div>
               </div>
               <div class="experience-body">
                 <ul>
-                  <li>Conception d'outils de productivité pour la prospection commerciale</li>
-                  <li>Automatisation de workflows (recherche, synthèse, organisation)</li>
-                  <li>Compétences : Prompting IA, LLMOps, organisation méthodique</li>
+                  <li>
+                    Conception d'outils de productivité pour la prospection
+                    commerciale
+                  </li>
+                  <li>
+                    Automatisation de workflows (recherche, synthèse,
+                    organisation)
+                  </li>
+                  <li>
+                    Compétences : Prompting IA, LLMOps, organisation méthodique
+                  </li>
                 </ul>
                 <p class="note">
-                  → Détails complets dans l'onglet <a href="#precursys">PrecurSys</a>
+                  → Détails complets dans l'onglet
+                  <a href="#precursys">PrecurSys</a>
                 </p>
               </div>
             </article>
@@ -151,20 +261,20 @@
               <div class="experience-body">
                 <ul>
                   <li>
-                    <strong>Management d'équipe :</strong> Supervision de 5 personnes,
-                    planification, formation, motivation
+                    <strong>Management d'équipe :</strong> Supervision de 5
+                    personnes, planification, formation, motivation
                   </li>
                   <li>
-                    <strong>Vente consultative B2C :</strong> Conseil personnalisé en
-                    poissonnerie, conversion clients
+                    <strong>Vente consultative B2C :</strong> Conseil
+                    personnalisé en poissonnerie, conversion clients
                   </li>
                   <li>
-                    <strong>Relation client premium :</strong> Fidélisation, suivi des
-                    préférences, gestion des réclamations
+                    <strong>Relation client premium :</strong> Fidélisation,
+                    suivi des préférences, gestion des réclamations
                   </li>
                   <li>
-                    <strong>Gestion opérationnelle :</strong> Stocks, commandes fournisseurs,
-                    organisation (30 tables)
+                    <strong>Gestion opérationnelle :</strong> Stocks, commandes
+                    fournisseurs, organisation (30 tables)
                   </li>
                 </ul>
               </div>
@@ -178,14 +288,21 @@
               </div>
               <div class="experience-body">
                 <ul>
-                  <li><strong>Gestion commerciale :</strong> Suivi des KPIs (CA, taux de conversion)</li>
                   <li>
-                    <strong>Management :</strong> Coordination de 10+ employés, gestion des horaires
+                    <strong>Gestion commerciale :</strong> Suivi des KPIs (CA,
+                    taux de conversion)
                   </li>
-                  <li><strong>Logistique :</strong> Gestion de stock de trois sites</li>
                   <li>
-                    <strong>Excellence opérationnelle :</strong> Norme HACCP, comptage caisses,
-                    objectif CA
+                    <strong>Management :</strong> Coordination de 10+ employés,
+                    gestion des horaires
+                  </li>
+                  <li>
+                    <strong>Logistique :</strong> Gestion de stock de trois
+                    sites
+                  </li>
+                  <li>
+                    <strong>Excellence opérationnelle :</strong> Norme HACCP,
+                    comptage caisses, objectif CA
                   </li>
                 </ul>
               </div>
@@ -200,21 +317,28 @@
               <div class="experience-body">
                 <ul>
                   <li>
-                    <strong>Vente conseil et upselling :</strong> Recommandations vins/plats,
-                    augmentation ticket moyen
+                    <strong>Vente conseil et upselling :</strong>
+                    Recommandations vins/plats, augmentation ticket moyen
                   </li>
                   <li>
-                    <strong>Relation client VIP :</strong> Clientèle parisienne exigeante, adaptation
-                    aux profils
+                    <strong>Relation client VIP :</strong> Clientèle parisienne
+                    exigeante, adaptation aux profils
                   </li>
-                  <li><strong>Responsabilité bar :</strong> Gestion rang (30 tables), cocktails</li>
-                  <li><strong>Performance sous pression :</strong> 100+ couverts/service</li>
+                  <li>
+                    <strong>Responsabilité bar :</strong> Gestion rang (30
+                    tables), cocktails
+                  </li>
+                  <li>
+                    <strong>Performance sous pression :</strong> 100+
+                    couverts/service
+                  </li>
                 </ul>
               </div>
             </article>
 
             <p class="text-note">
-              → Parcours complet dans l'onglet <a href="#hospitality">Hôtellerie</a>
+              → Parcours complet dans l'onglet
+              <a href="#hospitality">Hôtellerie</a>
             </p>
           </section>
 
@@ -232,7 +356,9 @@
               </div>
               <div class="info-card">
                 <strong>Mindset</strong>
-                <p>Appétence pour le digital, volonté d'apprendre la prospection</p>
+                <p>
+                  Appétence pour le digital, volonté d'apprendre la prospection
+                </p>
               </div>
               <div class="info-card">
                 <strong>Centres d'intérêt</strong>
@@ -248,7 +374,9 @@
               <div class="contact-links">
                 <a href="tel:+33744586297">07 44 58 62 97</a>
                 <span>•</span>
-                <a href="mailto:julien_pouvreau@yahoo.fr">julien_pouvreau@yahoo.fr</a>
+                <a href="mailto:julien_pouvreau@yahoo.fr"
+                  >julien_pouvreau@yahoo.fr</a
+                >
               </div>
               <p class="location">📍 Boujan-Sur-Libron (34), France</p>
             </div>
@@ -258,23 +386,52 @@
 
       <!-- Hospitality Tab -->
       <section id="hospitality" class="tab-content">
-        <div class="container">
-          <div class="hero-section">
-            <div class="badge">20 ans d'expérience • Management • Service Premium</div>
-            <h2 class="page-title">Hôtellerie & Restauration</h2>
-            <p class="hero-subtitle">Parcours complet | Chef de rang | Responsable</p>
-            <a href="assets/CV-Julien-POUVREAU-Hospitality.pdf" class="btn-primary" download>
-              Télécharger le CV PDF
-            </a>
+        <!-- BIG HERO FOR HOSPITALITY -->
+        <div class="section-hero section-hero--hospitality">
+          <div class="container">
+            <div class="section-hero-content">
+              <div class="section-hero-text">
+                <div class="badge">
+                  20 ans d'expérience • Management • Service Premium
+                </div>
+                <h2 class="section-hero-title">Hôtellerie & Restauration</h2>
+                <p class="section-hero-subtitle">
+                  Chef de rang • Responsable de salle • Management d'équipe •
+                  Service d'excellence
+                </p>
+                <div class="section-hero-cta-group">
+                  <a
+                    href="assets/CV-Julien-POUVREAU-Hospitality.pdf"
+                    class="btn-primary"
+                    download
+                  >
+                    Télécharger CV Hôtellerie (PDF)
+                  </a>
+                </div>
+              </div>
+              <div class="section-hero-image">
+                <img
+                  src="assets/img/julien-hospitality.png"
+                  alt="Julien Pouvreau - Hôtellerie & Restauration"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
+        </div>
 
+        <div class="container">
           <section class="content-section">
             <h3 class="section-title">Parcours Professionnel Complet</h3>
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Août 2024 - Oct. 2025 • 1 an 3 mois</div>
-                <div class="experience-title">Spécialiste de la chaîne d'approvisionnement</div>
+                <div class="date-badge">
+                  Août 2024 - Oct. 2025 • 1 an 3 mois
+                </div>
+                <div class="experience-title">
+                  Spécialiste de la chaîne d'approvisionnement
+                </div>
                 <div class="experience-company">Api Restauration • CDI</div>
                 <div class="location">Lyon, Auvergne-Rhône-Alpes, France</div>
               </div>
@@ -291,10 +448,14 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Sept. 2021 - Nov. 2022 • 1 an 3 mois</div>
+                <div class="date-badge">
+                  Sept. 2021 - Nov. 2022 • 1 an 3 mois
+                </div>
                 <div class="experience-title">Chef de rang</div>
                 <div class="experience-company">CHEZ MUS • Temps plein</div>
-                <div class="location">Salon-de-Provence, Provence-Alpes-Côte d'Azur, France</div>
+                <div class="location">
+                  Salon-de-Provence, Provence-Alpes-Côte d'Azur, France
+                </div>
               </div>
               <div class="experience-body">
                 <p>Accueil, service, encaissement</p>
@@ -303,10 +464,14 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Mai 2019 - Sept. 2021 • 2 ans 5 mois</div>
+                <div class="date-badge">
+                  Mai 2019 - Sept. 2021 • 2 ans 5 mois
+                </div>
                 <div class="experience-title">Responsable de salle</div>
                 <div class="experience-company">PARO • CDI</div>
-                <div class="location">Pélissanne, Provence-Alpes-Côte d'Azur, France</div>
+                <div class="location">
+                  Pélissanne, Provence-Alpes-Côte d'Azur, France
+                </div>
               </div>
               <div class="experience-body">
                 <ul>
@@ -323,10 +488,14 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Mars 2017 - Juil. 2018 • 1 an 5 mois</div>
+                <div class="date-badge">
+                  Mars 2017 - Juil. 2018 • 1 an 5 mois
+                </div>
                 <div class="experience-title">Responsable adjoint</div>
                 <div class="experience-company">Autogrill • CDI</div>
-                <div class="location">Miramas, Provence-Alpes-Côte d'Azur, France</div>
+                <div class="location">
+                  Miramas, Provence-Alpes-Côte d'Azur, France
+                </div>
               </div>
               <div class="experience-body">
                 <ul>
@@ -341,10 +510,14 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Janv. 2015 - Janv. 2017 • 2 ans 1 mois</div>
+                <div class="date-badge">
+                  Janv. 2015 - Janv. 2017 • 2 ans 1 mois
+                </div>
                 <div class="experience-title">Chef de rang</div>
                 <div class="experience-company">marco polo Haussmann • CDI</div>
-                <div class="location">Ville de Paris, Île-de-France, France</div>
+                <div class="location">
+                  Ville de Paris, Île-de-France, France
+                </div>
               </div>
               <div class="experience-body">
                 <ul>
@@ -360,9 +533,13 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Janv. 2012 - Sept. 2014 • 2 ans 9 mois</div>
+                <div class="date-badge">
+                  Janv. 2012 - Sept. 2014 • 2 ans 9 mois
+                </div>
                 <div class="experience-title">Chef de rang</div>
-                <div class="experience-company">La Brasserie Chelloise • CDI</div>
+                <div class="experience-company">
+                  La Brasserie Chelloise • CDI
+                </div>
                 <div class="location">Chelles, Île-de-France, France</div>
               </div>
               <div class="experience-body">
@@ -382,7 +559,9 @@
                 <div class="date-badge">Juil. 2010 - Avr. 2011 • 10 mois</div>
                 <div class="experience-title">Barman</div>
                 <div class="experience-company">EL RANCHO • CDI</div>
-                <div class="location">Rosny-sous-Bois, Île-de-France, France</div>
+                <div class="location">
+                  Rosny-sous-Bois, Île-de-France, France
+                </div>
               </div>
             </article>
 
@@ -391,13 +570,17 @@
                 <div class="date-badge">Juin 2009 - Févr. 2010 • 9 mois</div>
                 <div class="experience-title">Employé rayon fruits légumes</div>
                 <div class="experience-company">Carrefour • CDD</div>
-                <div class="location">Noisy-le-Grand, Île-de-France, France</div>
+                <div class="location">
+                  Noisy-le-Grand, Île-de-France, France
+                </div>
               </div>
             </article>
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Mai 2006 - Mars 2008 • 1 an 11 mois</div>
+                <div class="date-badge">
+                  Mai 2006 - Mars 2008 • 1 an 11 mois
+                </div>
                 <div class="experience-title">Cuisinier</div>
                 <div class="experience-company">La Forge • CDI</div>
                 <div class="location">Argelès-Gazost, Occitanie, France</div>
@@ -413,23 +596,33 @@
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Août 2004 - Mai 2006 • 1 an 10 mois</div>
+                <div class="date-badge">
+                  Août 2004 - Mai 2006 • 1 an 10 mois
+                </div>
                 <div class="experience-title">Employé service restauration</div>
                 <div class="experience-company">Quick • CDI</div>
-                <div class="location">Pontault-Combault, Île-de-France, France</div>
+                <div class="location">
+                  Pontault-Combault, Île-de-France, France
+                </div>
               </div>
             </article>
 
             <article class="experience-card">
               <div class="experience-meta">
-                <div class="date-badge">Août 1997 - Janv. 2004 • 6 ans 6 mois</div>
+                <div class="date-badge">
+                  Août 1997 - Janv. 2004 • 6 ans 6 mois
+                </div>
                 <div class="experience-title">Employé service restauration</div>
                 <div class="experience-company">Clos de Rougemont • Stage</div>
-                <div class="location">Lissay-Lochy, Centre-Val de Loire, France</div>
+                <div class="location">
+                  Lissay-Lochy, Centre-Val de Loire, France
+                </div>
               </div>
               <div class="experience-body">
                 <ul>
-                  <li>Confection des entrées, mise en place, nettoyage / plonge</li>
+                  <li>
+                    Confection des entrées, mise en place, nettoyage / plonge
+                  </li>
                   <li>Service et débarrassage lors de banquets et traiteur</li>
                 </ul>
               </div>
@@ -442,7 +635,9 @@
               <div class="contact-links">
                 <a href="tel:+33744586297">07 44 58 62 97</a>
                 <span>•</span>
-                <a href="mailto:julien_pouvreau@yahoo.fr">julien_pouvreau@yahoo.fr</a>
+                <a href="mailto:julien_pouvreau@yahoo.fr"
+                  >julien_pouvreau@yahoo.fr</a
+                >
               </div>
             </div>
           </section>
@@ -451,21 +646,42 @@
 
       <!-- PrecurSys Tab -->
       <section id="precursys" class="tab-content">
-        <div class="container">
-          <div class="hero-section">
-            <div class="badge">IA • Automatisation • Productivité</div>
-            <h2 class="page-title">PrecurSys</h2>
-            <p class="hero-subtitle">Outils, automatisations et méthodes pour la prospection</p>
+        <!-- BIG HERO FOR PRECURSYS (PLACEHOLDER) -->
+        <div class="section-hero section-hero--precursys">
+          <div class="container">
+            <div class="section-hero-content">
+              <div class="section-hero-text">
+                <div class="badge">IA • Automatisation • Productivité</div>
+                <h2 class="section-hero-title">PrecurSys</h2>
+                <p class="section-hero-subtitle">
+                  Atelier digital — Outils de productivité, automatisations et
+                  méthodes pour la prospection B2B
+                </p>
+              </div>
+              <div class="section-hero-image">
+                <!-- Placeholder for future banner: assets/img/precursys-banner.png -->
+                <div class="precursys-placeholder">
+                  <div class="placeholder-content">
+                    <div class="placeholder-icon">⚙️</div>
+                    <p>PrecurSys</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
 
+        <div class="container">
           <section class="content-section">
             <h3 class="section-title">Vue d'ensemble</h3>
             <div class="text-box">
               <p>
-                <strong>PrecurSys</strong> est un projet personnel (à temps partiel) axé sur
-                l'amélioration de la productivité commerciale grâce à des outils et des contenus
-                adaptés. L'objectif est d'optimiser les workflows de prospection, de recherche et
-                d'organisation en utilisant l'IA générative et les bonnes pratiques méthodologiques.
+                <strong>PrecurSys</strong> est un projet personnel (à temps
+                partiel) axé sur l'amélioration de la productivité commerciale
+                grâce à des outils et des contenus adaptés. L'objectif est
+                d'optimiser les workflows de prospection, de recherche et
+                d'organisation en utilisant l'IA générative et les bonnes
+                pratiques méthodologiques.
               </p>
             </div>
           </section>
@@ -476,29 +692,33 @@
               <div class="activity-card">
                 <h4>Conception d'outils de productivité</h4>
                 <p>
-                  Scripts et templates pour structurer l'information, automatiser les tâches
-                  répétitives et accélérer la recherche de données pertinentes.
+                  Scripts et templates pour structurer l'information,
+                  automatiser les tâches répétitives et accélérer la recherche
+                  de données pertinentes.
                 </p>
               </div>
               <div class="activity-card">
                 <h4>Automatisation de workflows</h4>
                 <p>
-                  Mise en place de processus automatisés pour la recherche, la synthèse
-                  d'informations, et l'organisation de contenus (veille, prospection, documentation).
+                  Mise en place de processus automatisés pour la recherche, la
+                  synthèse d'informations, et l'organisation de contenus
+                  (veille, prospection, documentation).
                 </p>
               </div>
               <div class="activity-card">
                 <h4>Production de contenus commerciaux</h4>
                 <p>
-                  Création de supports de prospection, fiches produits, argumentaires, pages de
-                  destination (landing pages), et contenus pour le digital.
+                  Création de supports de prospection, fiches produits,
+                  argumentaires, pages de destination (landing pages), et
+                  contenus pour le digital.
                 </p>
               </div>
               <div class="activity-card">
                 <h4>Méthodes de travail</h4>
                 <p>
-                  Définition d'objectifs clairs, suivi rigoureux, itération continue. Application de
-                  principes d'amélioration continue et de discipline opérationnelle.
+                  Définition d'objectifs clairs, suivi rigoureux, itération
+                  continue. Application de principes d'amélioration continue et
+                  de discipline opérationnelle.
                 </p>
               </div>
             </div>
@@ -520,15 +740,17 @@
             <h3 class="section-title">Positionnement</h3>
             <div class="text-box highlight">
               <p>
-                Ce projet est un <strong>levier de productivité</strong>, pas une distraction. Il me
-                permet d'apprendre des outils modernes (IA, automatisation) et de développer des
-                compétences directement transférables au business development : recherche de leads,
-                structuration de contenus commerciaux, optimisation de processus, discipline dans
-                l'exécution.
+                Ce projet est un <strong>levier de productivité</strong>, pas
+                une distraction. Il me permet d'apprendre des outils modernes
+                (IA, automatisation) et de développer des compétences
+                directement transférables au business development : recherche de
+                leads, structuration de contenus commerciaux, optimisation de
+                processus, discipline dans l'exécution.
               </p>
               <p>
-                Mon approche reste pragmatique : utiliser la technologie pour aller plus vite, mieux
-                organiser, et rester concentré sur les résultats.
+                Mon approche reste pragmatique : utiliser la technologie pour
+                aller plus vite, mieux organiser, et rester concentré sur les
+                résultats.
               </p>
             </div>
           </section>
@@ -537,8 +759,8 @@
             <div class="cta-banner">
               <h3>Intéressé par mes méthodes ou mes outils ?</h3>
               <p>
-                Consultez l'onglet <a href="#portfolio">Portfolio</a> pour voir des exemples concrets
-                et des ressources.
+                Consultez l'onglet <a href="#portfolio">Portfolio</a> pour voir
+                des exemples concrets et des ressources.
               </p>
             </div>
           </section>
@@ -547,13 +769,22 @@
 
       <!-- Portfolio Tab -->
       <section id="portfolio" class="tab-content">
-        <div class="container">
-          <div class="hero-section">
-            <div class="badge">Documents • Projets • Réalisations</div>
-            <h2 class="page-title">Portfolio</h2>
-            <p class="hero-subtitle">CV, exports LinkedIn, projets et ressources</p>
+        <!-- SIMPLE HERO FOR PORTFOLIO -->
+        <div class="section-hero section-hero--portfolio">
+          <div class="container">
+            <div class="section-hero-content section-hero-content--simple">
+              <div class="section-hero-text">
+                <div class="badge">Documents • Projets • Réalisations</div>
+                <h2 class="section-hero-title">Portfolio</h2>
+                <p class="section-hero-subtitle">
+                  CV, exports LinkedIn, projets et ressources
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
 
+        <div class="container">
           <section class="content-section">
             <h3 class="section-title">CV & Documents officiels</h3>
             <div class="document-grid">
@@ -561,10 +792,14 @@
                 <div class="doc-icon">📄</div>
                 <h4>CV Business Developer (PDF)</h4>
                 <p>
-                  CV optimisé pour les postes de Business Developer en alternance, focus compétences
-                  transférables.
+                  CV optimisé pour les postes de Business Developer en
+                  alternance, focus compétences transférables.
                 </p>
-                <a href="assets/CV-Julien-POUVREAU-BD.pdf" class="btn-secondary" download>
+                <a
+                  href="assets/CV-Julien-POUVREAU-BD.pdf"
+                  class="btn-secondary"
+                  download
+                >
                   Télécharger
                 </a>
               </div>
@@ -572,9 +807,14 @@
                 <div class="doc-icon">📄</div>
                 <h4>CV Hôtellerie & Restauration (PDF)</h4>
                 <p>
-                  Parcours complet dans l'hôtellerie-restauration avec 20 ans d'expérience détaillée.
+                  Parcours complet dans l'hôtellerie-restauration avec 20 ans
+                  d'expérience détaillée.
                 </p>
-                <a href="assets/CV-Julien-POUVREAU-Hospitality.pdf" class="btn-secondary" download>
+                <a
+                  href="assets/CV-Julien-POUVREAU-Hospitality.pdf"
+                  class="btn-secondary"
+                  download
+                >
                   Télécharger
                 </a>
               </div>
@@ -582,9 +822,14 @@
                 <div class="doc-icon">📄</div>
                 <h4>Export LinkedIn (PDF)</h4>
                 <p>
-                  Profil LinkedIn complet avec toutes les expériences et recommandations.
+                  Profil LinkedIn complet avec toutes les expériences et
+                  recommandations.
                 </p>
-                <a href="assets/LinkedIn-Export.pdf" class="btn-secondary" download>
+                <a
+                  href="assets/LinkedIn-Export.pdf"
+                  class="btn-secondary"
+                  download
+                >
                   Télécharger
                 </a>
               </div>
@@ -597,8 +842,8 @@
               <div class="project-card">
                 <h4>Landing Page CV (site actuel)</h4>
                 <p>
-                  Hub personnel statique (HTML/CSS/JS vanilla) avec système d'onglets, responsive,
-                  optimisé pour le print.
+                  Hub personnel statique (HTML/CSS/JS vanilla) avec système
+                  d'onglets, responsive, optimisé pour le print.
                 </p>
                 <div class="tech-tags">
                   <span class="tag">HTML5</span>
@@ -609,8 +854,9 @@
               <div class="project-card">
                 <h4>Outils de productivité PrecurSys</h4>
                 <p>
-                  Scripts et templates pour automatiser la recherche d'informations, structurer des
-                  contenus commerciaux et optimiser les workflows de prospection.
+                  Scripts et templates pour automatiser la recherche
+                  d'informations, structurer des contenus commerciaux et
+                  optimiser les workflows de prospection.
                 </p>
                 <div class="tech-tags">
                   <span class="tag">IA générative</span>
@@ -621,8 +867,9 @@
               <div class="project-card">
                 <h4>Documentation & méthodes</h4>
                 <p>
-                  Création de guides méthodologiques pour l'organisation du travail, la définition
-                  d'objectifs et le suivi d'indicateurs de performance.
+                  Création de guides méthodologiques pour l'organisation du
+                  travail, la définition d'objectifs et le suivi d'indicateurs
+                  de performance.
                 </p>
                 <div class="tech-tags">
                   <span class="tag">Organisation</span>
@@ -661,7 +908,9 @@
               <div class="contact-links">
                 <a href="tel:+33744586297">07 44 58 62 97</a>
                 <span>•</span>
-                <a href="mailto:julien_pouvreau@yahoo.fr">julien_pouvreau@yahoo.fr</a>
+                <a href="mailto:julien_pouvreau@yahoo.fr"
+                  >julien_pouvreau@yahoo.fr</a
+                >
               </div>
               <p class="location">📍 Boujan-Sur-Libron (34), France</p>
             </div>
