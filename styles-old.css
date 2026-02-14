@@ -1,0 +1,840 @@
+/* =====================================================
+   Reset & Base Styles - Mobile First Design
+   ===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #2e75b6;
+  --color-primary-dark: #1f5280;
+  --color-primary-light: #4a8fce;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-border: #e0e0e0;
+  --color-accent: #2e75b6;
+  --container-width: 1000px;
+
+  /* Compact spacing - Mobile first */
+  --spacing-xs: 0.375rem;
+  --spacing-sm: 0.625rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Typography scale - Mobile first */
+  --font-base: 15px;
+  --font-sm: 0.875rem;
+  --font-xs: 0.8125rem;
+  --h1-size: 1.5rem;
+  --h2-size: 1.25rem;
+  --h3-size: 1.125rem;
+  --h4-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-md: 1.25rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 2.5rem;
+    --font-base: 16px;
+    --h1-size: 1.875rem;
+    --h2-size: 1.5rem;
+    --h3-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* =====================================================
+   Typography
+   ===================================================== */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-size: var(--h3-size);
+}
+
+h4 {
+  font-size: var(--h4-size);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--font-base);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.inline-link {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* =====================================================
+   Layout
+   ===================================================== */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* =====================================================
+   Header & Navigation - Non-sticky, compact
+   ===================================================== */
+.site-header {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: white;
+  padding: var(--spacing-md) 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-title {
+  font-size: var(--h1-size);
+  margin-bottom: var(--spacing-xs);
+  text-align: center;
+  font-weight: 700;
+}
+
+.site-tagline {
+  text-align: center;
+  font-size: var(--font-sm);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.95;
+}
+
+/* Tabs Navigation - Compact, horizontal scroll on mobile */
+.tabs-nav {
+  display: flex;
+  gap: var(--spacing-xs);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 var(--spacing-md) var(--spacing-sm);
+}
+
+.tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.875rem;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .tabs-nav {
+    justify-content: center;
+    overflow-x: visible;
+    padding: 0 0 var(--spacing-md);
+  }
+
+  .tab-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: var(--font-base);
+  }
+}
+
+/* =====================================================
+   Tab Content
+   ===================================================== */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   Content Sections - Compact
+   ===================================================== */
+main {
+  background-color: var(--color-bg);
+  min-height: 50vh;
+}
+
+.content-section {
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+.hero-section {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  background-color: var(--color-bg-alt);
+}
+
+.page-title {
+  font-size: var(--h1-size);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.hero-subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+  font-size: var(--h2-size);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.text-content {
+  font-size: var(--font-base);
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+
+.text-note {
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
+  text-align: center;
+  font-size: var(--font-sm);
+}
+
+/* =====================================================
+   Buttons - Compact
+   ===================================================== */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 2px solid var(--color-primary);
+  min-height: 44px;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   Skills Grid - Compact cards
+   ===================================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+.skill-card {
+  background-color: var(--color-bg-alt);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-base);
+}
+
+.skill-card p {
+  margin-bottom: 0;
+  color: var(--color-text-light);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+/* =====================================================
+   Experience Items - Compact
+   ===================================================== */
+.experience-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.experience-title {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--h4-size);
+}
+
+.experience-company {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.experience-date {
+  color: var(--color-text-light);
+  font-style: italic;
+  font-size: var(--font-xs);
+  flex-shrink: 0;
+}
+
+.experience-location {
+  color: var(--color-text-light);
+  font-size: var(--font-xs);
+  margin-bottom: var(--spacing-xs);
+  font-style: italic;
+}
+
+.experience-list {
+  list-style-position: outside;
+  margin-left: 1.25rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-list li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-light);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.experience-summary {
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-size: var(--font-sm);
+}
+
+.experience-note {
+  margin-top: var(--spacing-xs);
+  font-style: italic;
+  color: var(--color-text-light);
+  font-size: var(--font-sm);
+}
+
+/* =====================================================
+   Info Grid & Items - Compact
+   ===================================================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+.info-item {
+  color: var(--color-text-light);
+  padding: var(--spacing-sm);
+  background-color: var(--color-bg-alt);
+  border-radius: 4px;
+  font-size: var(--font-sm);
+}
+
+/* =====================================================
+   Activity & Project Lists - Compact
+   ===================================================== */
+.activity-list,
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.activity-item,
+.project-item {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-alt);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.activity-item h4,
+.project-item h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--h4-size);
+}
+
+.activity-item p,
+.project-item p {
+  color: var(--color-text-light);
+  margin-bottom: 0;
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.project-tech {
+  font-size: var(--font-xs);
+  font-style: italic;
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-light);
+}
+
+/* =====================================================
+   Skill List - Compact
+   ===================================================== */
+.skill-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.skill-list li {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-light);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.skill-list li strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* =====================================================
+   CTA Box - Compact
+   ===================================================== */
+.cta-box {
+  background-color: var(--color-bg-alt);
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.cta-box p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+  font-size: var(--font-sm);
+}
+
+.cta-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   Document & Tech Grid - Compact
+   ===================================================== */
+.document-grid,
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .document-grid,
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 960px) {
+  .document-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.document-card,
+.tech-item {
+  background-color: var(--color-bg-alt);
+  padding: var(--spacing-md);
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.document-card h4,
+.tech-item h5 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--h4-size);
+}
+
+.document-card p,
+.tech-item p {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.document-card .btn-secondary {
+  margin-top: var(--spacing-xs);
+}
+
+/* =====================================================
+   Contact Section - Compact
+   ===================================================== */
+.contact-section {
+  text-align: center;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-info p {
+  font-size: var(--font-base);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-light);
+}
+
+.contact-info strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.contact-info a {
+  font-weight: 600;
+}
+
+/* =====================================================
+   Footer - Compact
+   ===================================================== */
+.site-footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.site-footer p {
+  margin-bottom: 0;
+  font-size: var(--font-xs);
+  opacity: 0.9;
+}
+
+/* =====================================================
+   Print Styles - Active tab only
+   ===================================================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Hide navigation and buttons */
+  .site-header,
+  .tabs-nav,
+  .site-footer,
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+
+  /* Show only active tab */
+  .tab-content {
+    display: none !important;
+  }
+
+  .tab-content.active {
+    display: block !important;
+  }
+
+  /* Compact print layout */
+  .hero-section {
+    padding: 0.3cm 0;
+    border-bottom: 1.5pt solid black;
+  }
+
+  .page-title {
+    font-size: 16pt;
+    color: black !important;
+    margin-bottom: 0.2cm;
+  }
+
+  .hero-subtitle {
+    font-size: 10pt;
+    color: black !important;
+  }
+
+  .section-title {
+    font-size: 12pt;
+    color: black !important;
+    border-bottom: 1pt solid black;
+    padding-bottom: 0.15cm;
+    margin-bottom: 0.4cm;
+    page-break-after: avoid;
+  }
+
+  .content-section {
+    padding: 0.4cm 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25cm;
+  }
+
+  .skill-card {
+    border: 0.5pt solid #999;
+    padding: 0.25cm;
+    page-break-inside: avoid;
+  }
+
+  .skill-card h4 {
+    font-size: 9pt;
+    margin-bottom: 0.1cm;
+  }
+
+  .skill-card p {
+    font-size: 8.5pt;
+  }
+
+  .experience-item {
+    page-break-inside: avoid;
+    margin-bottom: 0.4cm;
+    padding-bottom: 0.4cm;
+    border-bottom: 0.5pt solid #ccc;
+  }
+
+  .experience-title {
+    font-size: 10pt;
+  }
+
+  .experience-company {
+    font-size: 9pt;
+    color: black !important;
+  }
+
+  .experience-date,
+  .experience-location {
+    font-size: 8pt;
+  }
+
+  .experience-list,
+  .skill-list {
+    font-size: 8.5pt;
+    margin-left: 1cm;
+  }
+
+  .experience-list li,
+  .skill-list li {
+    margin-bottom: 0.1cm;
+  }
+
+  .text-content,
+  .text-note,
+  .experience-summary {
+    font-size: 9pt;
+  }
+
+  .inline-link,
+  a {
+    text-decoration: none;
+    color: black !important;
+  }
+
+  .contact-info a::after {
+    content: " (" attr(href) ")";
+    font-size: 7pt;
+  }
+
+  .document-grid,
+  .tech-grid,
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25cm;
+  }
+
+  .document-card,
+  .tech-item,
+  .info-item {
+    border: 0.5pt solid #999;
+    padding: 0.25cm;
+  }
+}
