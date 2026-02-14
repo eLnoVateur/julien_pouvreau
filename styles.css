@@ -555,11 +555,14 @@ strong {
 /* BD Hero: Position absolue pour l'image dans le coin bas-droit */
 .section-hero--bd {
   position: relative;
+  padding: var(--spacing-xl) 0 0 0 !important;
 }
 
 .section-hero--bd .container {
   position: relative;
   overflow: visible;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .section-hero--bd .section-hero-content {
@@ -576,6 +579,7 @@ strong {
   min-width: 0;
   text-align: left;
   padding-right: 1.5rem;
+  padding-bottom: var(--spacing-xl);
   align-self: center;
   z-index: 2;
   position: relative;
@@ -595,8 +599,8 @@ strong {
 /* FIX 1 & 2: Image énorme bottom-right + halo effect */
 .section-hero--bd .section-hero-image {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -12px;
+  bottom: -12px;
   z-index: 1;
   margin: 0;
   padding: 0;
@@ -606,7 +610,7 @@ strong {
 
 /* FIX 2: Halo/glow derrière l'image */
 .section-hero--bd .section-hero-image::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -80px -120px -80px -120px;
   background: radial-gradient(
@@ -635,6 +639,7 @@ strong {
   .section-hero--bd .section-hero-text {
     max-width: 58%;
     padding-right: 1rem;
+    padding-bottom: var(--spacing-lg);
   }
 
   .section-hero--bd .section-hero-image img {
@@ -644,6 +649,10 @@ strong {
 
 /* Tablet/Desktop: image très grande, plus d'espace texte */
 @media (min-width: 768px) {
+  .section-hero--bd {
+    padding: var(--spacing-3xl) 0 0 0 !important;
+  }
+
   .section-hero--bd .section-hero-content {
     min-height: 580px;
   }
@@ -651,6 +660,7 @@ strong {
   .section-hero--bd .section-hero-text {
     max-width: 58%;
     padding-right: var(--spacing-2xl);
+    padding-bottom: var(--spacing-3xl);
   }
 
   .section-hero--bd .section-hero-image img {
