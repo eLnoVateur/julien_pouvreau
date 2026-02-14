@@ -214,13 +214,23 @@ strong {
   gap: var(--spacing-xs);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   padding: 0 var(--spacing-md) var(--spacing-md);
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .tabs-nav::-webkit-scrollbar {
-  display: none;
+  height: 4px;
+}
+
+.tabs-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabs-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 }
 
 .tab-btn {
@@ -238,6 +248,15 @@ strong {
   white-space: nowrap;
   flex-shrink: 0;
   min-height: 44px;
+}
+
+/* Onglets plus compacts sur mobile */
+@media (max-width: 640px) {
+  .tab-btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+    min-height: 40px;
+  }
 }
 
 .tab-btn:hover {
@@ -531,6 +550,93 @@ strong {
 @media (min-width: 768px) {
   .section-hero-image img {
     max-width: 400px;
+  }
+}
+
+/* ===================================================================
+   BD HERO SPECIFIC LAYOUT (Mobile-first 2-column)
+   =================================================================== */
+/* BD Hero: Position absolue pour l'image dans le coin bas-droit */
+.section-hero--bd {
+  position: relative;
+}
+
+.section-hero--bd .container {
+  position: relative;
+  overflow: visible;
+}
+
+.section-hero--bd .section-hero-content {
+  position: relative;
+  flex-direction: row;
+  align-items: flex-end;
+  min-height: 500px;
+  gap: 0;
+}
+
+.section-hero--bd .section-hero-text {
+  flex: 1;
+  max-width: 52%;
+  min-width: 0;
+  text-align: left;
+  padding-right: var(--spacing-md);
+  align-self: center;
+  z-index: 2;
+}
+
+.section-hero--bd .section-hero-cta-group {
+  justify-content: flex-start;
+}
+
+/* Image positionnée en absolu - touche le coin bas-droit */
+.section-hero--bd .section-hero-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48vw;
+  max-width: 400px;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.section-hero--bd .section-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  object-position: bottom right;
+  border-radius: 0;
+}
+
+/* Tablet/Desktop: image plus grande, meilleur espacement */
+@media (min-width: 768px) {
+  .section-hero--bd .section-hero-content {
+    min-height: 550px;
+  }
+
+  .section-hero--bd .section-hero-text {
+    max-width: 55%;
+    padding-right: var(--spacing-xl);
+  }
+
+  .section-hero--bd .section-hero-image {
+    width: 45vw;
+    max-width: 500px;
+  }
+
+  .section-hero--bd .section-hero-image img {
+    max-height: 80vh;
+    border-top-left-radius: var(--radius-2xl);
+  }
+}
+
+/* Desktop large: image encore plus grande */
+@media (min-width: 1024px) {
+  .section-hero--bd .section-hero-image {
+    max-width: 550px;
   }
 }
 
