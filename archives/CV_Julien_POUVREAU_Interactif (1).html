@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Pouvreau - Chef de Rang & Professionnel de la Restauration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37;
+            --accent-hover: #f4cf57;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-strong: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section avec animation */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero .contact-bar {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hero .contact-bar a:hover {
+            color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--accent);
+        }
+
+        /* Navigation sticky */
+        .nav-sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-sticky.visible {
+            transform: translateY(0);
+        }
+
+        .nav-sticky .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-sticky .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Profile */
+        .section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            line-height: 1.9;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        /* Compétences avec animations */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px var(--shadow);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow-strong);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .skill-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline d'expérience avec accordéon */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, rgba(212, 175, 55, 0.2) 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.2);
+        }
+
+        .timeline-header {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-header {
+            box-shadow: 0 8px 30px var(--shadow-strong);
+            transform: translateX(5px);
+        }
+
+        .timeline-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-left: 0.5rem;
+            color: var(--accent);
+        }
+
+        .timeline-item.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .timeline-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 2rem;
+        }
+
+        .timeline-item.active .timeline-content {
+            max-height: 500px;
+            padding: 1.5rem 2rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Stats animées */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Formation et infos */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px var(--shadow);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d2d2d 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+        }
+
+        .footer-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline::before {
+                left: -10px;
+            }
+
+            .timeline-item::before {
+                left: -2.35rem;
+            }
+
+            .hero .contact-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Animation d'apparition au scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Julien Pouvreau</h1>
+            <p class="subtitle">Chef de Rang • Professionnel de la Restauration • 20+ ans d'excellence</p>
+            <div class="contact-bar">
+                <a href="tel:0744586297">📞 07.44.58.62.97</a>
+                <a href="mailto:julien_pouvreau@yahoo.fr">✉️ julien_pouvreau@yahoo.fr</a>
+                <span>📍 Boujan-Sur-Libron (34)</span>
+            </div>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('experience')">Découvrir mon parcours</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('contact')">Me contacter</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Navigation Sticky -->
+    <nav class="nav-sticky" id="stickyNav">
+        <div class="nav-content">
+            <div class="name">JP</div>
+            <ul class="nav-links">
+                <li><a href="#profil" onclick="scrollToSection('profil')">Profil</a></li>
+                <li><a href="#competences" onclick="scrollToSection('competences')">Compétences</a></li>
+                <li><a href="#experience" onclick="scrollToSection('experience')">Expérience</a></li>
+                <li><a href="#formation" onclick="scrollToSection('formation')">Formation</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profil -->
+    <div class="container">
+        <section class="section fade-in" id="profil">
+            <h2 class="section-title">À Propos</h2>
+            <div class="profile-card">
+                <p>
+                    Professionnel passionné de la restauration avec plus de 20 ans d'expérience dans des établissements variés, 
+                    allant de la restauration rapide aux restaurants gastronomiques. Mon parcours m'a permis de développer une 
+                    expertise complète en service en salle, gestion d'équipe, bar et coordination cuisine-salle.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Reconnu pour mon sens aigu du service client, ma polyvalence et ma capacité à maintenir l'excellence même 
+                    pendant les périodes de forte affluence. Je m'engage à offrir une expérience mémorable à chaque client 
+                    tout en assurant le bon fonctionnement de l'établissement.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Années d'Expérience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">11</span>
+                    <span class="stat-label">Établissements</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Villes (Paris, Lyon, Provence)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Engagement</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section fade-in" id="competences">
+            <h2 class="section-title">Compétences Clés</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🍽️</div>
+                    <h3>Service d'Excellence</h3>
+                    <p>Service attentif et personnalisé, gestion des allergies, régimes spéciaux et préférences clients</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💬</div>
+                    <h3>Communication</h3>
+                    <p>Excellentes aptitudes à interagir avec clients, cuisine, bar et toute l'équipe</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Gestion du Temps</h3>
+                    <p>Maîtrise des priorités en forte affluence pour garantir un service fluide et rapide</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Souci du Détail</h3>
+                    <p>Précision dans la prise de commandes, présentation des plats et facturation</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💰</div>
+                    <h3>Gestion Financière</h3>
+                    <p>Manipulation des caisses, logiciels et gestion précise des transactions</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>Polyvalence</h3>
+                    <p>Flexibilité totale entre salle et cuisine, adaptation rapide aux besoins</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">✨</div>
+                    <h3>Hygiène & Sécurité</h3>
+                    <p>Respect strict des normes HACCP et maintien d'un environnement sécurisé</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🍸</div>
+                    <h3>Bar & Mixologie</h3>
+                    <p>Préparation de boissons, gestion du bar, connaissance des cocktails classiques</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expérience - Timeline avec accordéon -->
+        <section class="section fade-in" id="experience">
+            <h2 class="section-title">Parcours Professionnel</h2>
+            <div class="timeline">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Employé de Restauration <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">API RESTAURATION - Hôpital de Fourvière, Lyon</span>
+                            <span class="date">Août 2024 - Octobre 2025</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Service en restauration collective hospitalière avec attention particulière aux besoins diététiques</li>
+                            <li>Respect rigoureux des protocoles d'hygiène renforcés en milieu hospitalier</li>
+                            <li>Gestion du service sur différents horaires et adaptation aux contraintes du secteur médical</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Polyvalent Salle/Cuisine <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">LA CORDE DES SENS - Péniche La Barge, Lyon</span>
+                            <span class="date">Mai 2023 - Septembre 2024</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Service en salle dans un cadre original (péniche restaurant) avec forte affluence touristique</li>
+                            <li>Support en cuisine : préparation, dressage des assiettes et coordination avec l'équipe</li>
+                            <li>Polyvalence totale entre salle et cuisine selon les besoins du service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Chef de Rang <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">CHEZ MUS - Salon-de-Provence</span>
+                            <span class="date">Septembre 2021 - Octobre 2022</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Supervision d'un rang et coordination du service en salle</li>
+                            <li>Conseil aux clients sur les plats et accords mets-vins</li>
+                            <li>Formation et encadrement des commis de salle</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Responsable de Salle & Vendeur en Poissonnerie <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">CHEZ PARO - Pélissanne</span>
+                            <span class="date">Mai 2019 - Juillet 2021</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Gestion complète de la salle : organisation, supervision du personnel, relation client</li>
+                            <li>Vente et conseil en poissonnerie : connaissance des produits, préparation, conseil culinaire</li>
+                            <li>Double compétence restauration-commerce de détail</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Adjoint Point de Vente <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">AUTOGRILL - Mc Arthur Glen, Miramas</span>
+                            <span class="date">Mars 2017 - Juillet 2018</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Assistance à la direction dans la gestion quotidienne du point de vente</li>
+                            <li>Gestion des stocks, commandes et inventaires</li>
+                            <li>Management d'équipe et planification des horaires</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Chef de Rang et Barman <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">MARCO POLO - Haussmann Saint-Lazare, Paris</span>
+                            <span class="date">Janvier 2015 - Janvier 2017</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Service de qualité dans un établissement parisien à fort volume de clientèle</li>
+                            <li>Gestion du bar : préparation de cocktails, gestion des stocks bar</li>
+                            <li>Double compétence salle et bar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Chef de Rang et Responsable de Bar <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">LA CHELLOISE - Chelles</span>
+                            <span class="date">Janvier 2012 - Septembre 2014</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Responsabilité complète du bar : gestion des stocks, commandes, création de la carte</li>
+                            <li>Service en salle et coordination entre bar et cuisine</li>
+                            <li>Formation du personnel bar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-header">
+                        <h3>Expériences Fondamentales (2004-2011) <span class="toggle-icon">▼</span></h3>
+                        <div class="timeline-meta">
+                            <span class="company">Multiples établissements</span>
+                            <span class="date">2004 - 2011</span>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Barman et Commis de Salle</strong> - El Rancho, Rosny-sous-Bois (2010-2011)</li>
+                            <li><strong>Commis de Cuisine</strong> - La Forge, Argeles-Gazost (2006-2010)</li>
+                            <li><strong>Employé Polyvalent</strong> - Quick Restauration, Pontault-Combault (2004-2006)</li>
+                            <li><strong>Débuts</strong> - Clos de Rougemont / Rudy's Pizz, Bourges (1997-2004)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formation & Informations -->
+        <section class="section fade-in" id="formation">
+            <h2 class="section-title">Formation & Informations</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🎓 Formation</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-icon">📜</span>
+                            <div>
+                                <strong>BEP Hôtellerie, option Service</strong><br>
+                                <span style="color: var(--text-light); font-size: 0.9rem;">Niveau CAP/BEP (Niveau 5)</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🌍 Langues & Compétences</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-icon">🗣️</span>
+                            <div>
+                                <strong>Anglais</strong><br>
+                                <span style="color: var(--text-light); font-size: 0.9rem;">Niveau B1 - Conversation courante avec clientèle internationale</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>⚡ Disponibilité</h3>
+                    <ul class="info-list">
+                        <li><span class="info-icon">✅</span> Disponibilité immédiate</li>
+                        <li><span class="info-icon">📅</span> Flexible (week-ends, jours fériés, coupures)</li>
+                        <li><span class="info-icon">📍</span> Mobilité : Région Occitanie</li>
+                        <li><span class="info-icon">🚗</span> Montpellier, Béziers, Narbonne et environs</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Centres d'Intérêt</h3>
+                    <ul class="info-list">
+                        <li><span class="info-icon">🥋</span> Judo</li>
+                        <li><span class="info-icon">🥊</span> Boxe</li>
+                        <li><span class="info-icon">♟️</span> Échecs</li>
+                        <li><span class="info-icon">🎷</span> Saxophone</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta" id="contact">
+        <div class="footer-cta-content">
+            <h2>Prêt à Collaborer ?</h2>
+            <p>Je suis disponible immédiatement pour rejoindre votre équipe et contribuer à l'excellence de votre établissement.</p>
+            <div class="cta-buttons">
+                <a href="mailto:julien_pouvreau@yahoo.fr" class="btn btn-primary">Envoyer un Email</a>
+                <a href="tel:0744586297" class="btn btn-secondary">Appeler Maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navigation sticky au scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('stickyNav');
+            if (window.scrollY > window.innerHeight - 100) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
+        });
+
+        // Fonction pour scroller vers une section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Toggle accordéon timeline
+        function toggleTimeline(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Fermer tous les autres
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Ouvrir celui cliqué si il n'était pas déjà ouvert
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Compteur animé pour les stats
+        function animateCounter(element, target, duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (target === 100 ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (target === 100 ? '%' : '+');
+                }
+            }, 16);
+        }
+
+        // Observer pour les stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const number = entry.target.querySelector('.stat-number');
+                    const value = parseInt(number.textContent);
+                    animateCounter(number, value);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Julien POUVREAU - Business Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 9pt;
+            line-height: 1.25;
+            color: #333;
+            background: #f5f5f5;
+            padding: 0;
+            margin: 0;
+        }
+        
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 12mm;
+                background: white;
+            }
+            .container {
+                max-width: none;
+                box-shadow: none;
+            }
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 12mm;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Règles responsive pour mobile */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 11pt;
+                line-height: 1.4;
+                background: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 15px;
+                box-shadow: none;
+            }
+            
+            h1 {
+                font-size: 22pt !important;
+            }
+            
+            h2 {
+                font-size: 14pt !important;
+                margin-top: 15pt !important;
+            }
+            
+            h3 {
+                font-size: 11pt !important;
+            }
+            
+            .subtitle {
+                font-size: 11pt !important;
+            }
+            
+            .contact-info {
+                font-size: 10pt !important;
+            }
+            
+            .profile {
+                font-size: 10pt !important;
+                line-height: 1.5;
+            }
+            
+            li {
+                font-size: 10pt !important;
+                margin-bottom: 4pt;
+                line-height: 1.4;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 3pt;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 10pt;
+            border-bottom: 2px solid #2E75B6;
+            padding-bottom: 8pt;
+        }
+        
+        h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #2E75B6;
+            margin-bottom: 4pt;
+            letter-spacing: 0.5pt;
+        }
+        
+        .subtitle {
+            font-size: 10pt;
+            font-weight: bold;
+            color: #2E75B6;
+            margin-bottom: 6pt;
+        }
+        
+        .contact-info {
+            font-size: 8.5pt;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #2E75B6;
+            margin-top: 10pt;
+            margin-bottom: 5pt;
+            border-bottom: 1px solid #2E75B6;
+            padding-bottom: 2pt;
+        }
+        
+        h3 {
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-top: 5pt;
+            margin-bottom: 2pt;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2pt;
+        }
+        
+        .company {
+            font-weight: bold;
+            font-size: 9pt;
+        }
+        
+        .date {
+            font-size: 8pt;
+            color: #666;
+            font-style: italic;
+        }
+        
+        ul {
+            margin-left: 13pt;
+            margin-bottom: 5pt;
+        }
+        
+        li {
+            margin-bottom: 1pt;
+            font-size: 8.5pt;
+            line-height: 1.2;
+        }
+        
+        .profile {
+            text-align: justify;
+            margin-bottom: 8pt;
+            font-size: 8.5pt;
+            line-height: 1.3;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2pt 8pt;
+            margin-bottom: 8pt;
+        }
+        
+        .skills-grid li {
+            font-size: 8pt;
+            line-height: 1.2;
+            margin-bottom: 2pt;
+        }
+        
+        .experience-item {
+            margin-bottom: 6pt;
+            page-break-inside: avoid;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10pt;
+            margin-top: 6pt;
+        }
+        
+        .info-box {
+            font-size: 8.5pt;
+        }
+        
+        .info-box ul {
+            margin-bottom: 0;
+        }
+        
+        .compact-text {
+            font-size: 8.5pt;
+            line-height: 1.3;
+            margin-bottom: 8pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JULIEN POUVREAU</h1>
+            <div class="subtitle">BUSINESS DEVELOPER (ALTERNANCE) — RECONVERSION</div>
+            <div class="contact-info">
+                8 rue de la Poste, 34760 Boujan-Sur-Libron<br>
+                07.44.58.62.97 • julien_pouvreau@yahoo.fr
+            </div>
+        </header>
+
+        <section>
+            <h2>PROJET PROFESSIONNEL</h2>
+            <p class="profile">
+                Après 20 ans d'expérience terrain en relation client et vente dans la restauration, je me reconvertis vers le business development dans le digital. Mon parcours m'a permis de développer des compétences clés transférables : écoute active, identification des besoins clients, argumentation commerciale, gestion des objections, et travail sous pression. Je viens pour apprendre la méthode BD et l'appliquer en alternance dans un environnement B2B ou SaaS.
+            </p>
+        </section>
+
+        <section>
+            <h2>COMPÉTENCES TRANSFÉRABLES BUSINESS DEVELOPMENT</h2>
+            <ul class="skills-grid">
+                <li><strong>Relation client & satisfaction :</strong> 20 ans d'écoute active, reformulation des besoins, gestion des attentes et fidélisation</li>
+                <li><strong>Vente consultative :</strong> Recommandations personnalisées, upsell naturel, argumentation adaptée au profil client</li>
+                <li><strong>Gestion des objections :</strong> Réponse aux demandes spéciales, contraintes clients, avec solutions adaptées</li>
+                <li><strong>Résistance au rythme :</strong> Gestion de forte affluence (100+ couverts), priorisation, efficacité</li>
+                <li><strong>Communication :</strong> Interface clients-équipe, transmission d'informations claires et précises</li>
+                <li><strong>Discipline et fiabilité :</strong> Rigueur dans le suivi des processus, ponctualité, respect des engagements</li>
+                <li><strong>Gestion financière :</strong> Caisses, logiciels POS, suivi des transactions, trésorerie quotidienne</li>
+                <li><strong>Polyvalence :</strong> Capacité à gérer plusieurs tâches simultanées et s'adapter aux imprévus</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>EXPÉRIENCE PROFESSIONNELLE (focus compétences BD)</h2>
+            
+            <div class="experience-item">
+                <h3>Responsable de Salle et Vendeur</h3>
+                <div class="job-header">
+                    <span class="company">CHEZ PARO - Pélissanne</span>
+                    <span class="date">Mai 2019 - Juillet 2021</span>
+                </div>
+                <ul>
+                    <li>Management d'équipe : Supervision de 5 personnes, planification, formation, motivation</li>
+                    <li>Vente consultative B2C : Conseil personnalisé en poissonnerie (produits, préparation, recettes), conversion clients</li>
+                    <li>Relation client premium : Fidélisation, suivi des préférences, gestion des réclamations avec solutions proactives</li>
+                    <li>Gestion opérationnelle : Stocks, commandes fournisseurs, organisation de la salle</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Adjoint Point de Vente</h3>
+                <div class="job-header">
+                    <span class="company">AUTOGRILL - Mc Arthur Glen, Miramas</span>
+                    <span class="date">Mars 2017 - Juillet 2018</span>
+                </div>
+                <ul>
+                    <li>Gestion commerciale : Suivi des KPIs (CA, taux de conversion), optimisation des ventes</li>
+                    <li>Management : Coordination de 10+ employés, gestion des horaires, motivation d'équipe</li>
+                    <li>Logistique : Gestion des stocks, commandes, inventaires, négociation fournisseurs</li>
+                    <li>Excellence opérationnelle : Respect des procédures, contrôle qualité, amélioration continue</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Chef de Rang et Responsable de Bar</h3>
+                <div class="job-header">
+                    <span class="company">MARCO POLO Paris & LA CHELLOISE Chelles</span>
+                    <span class="date">2012 - 2017</span>
+                </div>
+                <ul>
+                    <li>Vente conseil et upselling : Recommandations vins/plats, augmentation du ticket moyen par approche consultative</li>
+                    <li>Gestion relation client VIP : Clientèle parisienne exigeante, adaptation aux profils, satisfaction maximale</li>
+                    <li>Responsabilité bar : Création de carte cocktails, gestion stocks et commandes, formation du personnel</li>
+                    <li>Performance sous pression : Gestion de 100+ couverts/service, rigueur, réactivité</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Parcours Complémentaire (2004-2025)</h3>
+                <p class="compact-text">
+                    Multiples postes en restauration (API Restauration Lyon, La Corde des Sens Lyon, Chez Mus Salon-de-Provence, et autres) : consolidation des compétences en service client, polyvalence salle/cuisine, gestion des priorités, travail d'équipe, et adaptation à différents environnements (gastronomique, collectif, restauration rapide).
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>INFORMATIONS COMPLÉMENTAIRES</h2>
+            <div class="two-column">
+                <div class="info-box">
+                    <ul>
+                        <li>Disponibilité : Immédiate pour une alternance</li>
+                        <li>Mobilité : Région Occitanie (Montpellier, Béziers, Narbonne)</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <ul>
+                        <li>Mindset : Appétence pour le digital, volonté d'apprendre la prospection</li>
+                        <li>Centres d'intérêt : Stratégie (échecs), discipline (judo, boxe)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
