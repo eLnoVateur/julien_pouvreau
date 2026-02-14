@@ -695,6 +695,48 @@ strong {
   }
 }
 
+/* Desktop XL (1440px+): image ÉNORME avec width minimum */
+@media (min-width: 1440px) {
+  .section-hero--bd .section-hero-content {
+    min-height: 800px;
+  }
+
+  .section-hero--bd .section-hero-text {
+    max-width: 48%;
+  }
+
+  .section-hero--bd .section-hero-image img {
+    height: 95vh;
+    min-width: 550px;
+  }
+
+  .section-hero--bd .section-hero-image::before {
+    inset: -160px -200px -160px -200px;
+    filter: blur(45px);
+  }
+}
+
+/* Desktop XXL (1920px+): image MAXIMALE absolue */
+@media (min-width: 1920px) {
+  .section-hero--bd .section-hero-content {
+    min-height: 900px;
+  }
+
+  .section-hero--bd .section-hero-text {
+    max-width: 45%;
+  }
+
+  .section-hero--bd .section-hero-image img {
+    height: 100vh;
+    min-width: 650px;
+  }
+
+  .section-hero--bd .section-hero-image::before {
+    inset: -180px -220px -180px -220px;
+    filter: blur(50px);
+  }
+}
+
 /* PrecurSys Placeholder */
 .precursys-placeholder {
   width: 280px;
