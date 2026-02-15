@@ -110,9 +110,56 @@ body {
   font-size: var(--font-base);
   line-height: 1.6;
   color: var(--text-primary);
-  background: var(--bg-light);
+  /* Background image sur tout le site - 100% largeur pour voir le phare */
+  background-image: url("assets/img/beacon_home.jpg");
+  background-size: 100% auto;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* Couleur de fond pour remplir les espaces autour de l'image */
+  background-color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Overlay "fumé" global sur toute la page */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.75) 0%,
+    rgba(30, 64, 175, 0.65) 30%,
+    rgba(30, 64, 175, 0.6) 50%,
+    rgba(139, 92, 246, 0.55) 70%,
+    rgba(15, 23, 42, 0.7) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Tout le contenu au-dessus de l'overlay */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile: background scroll au lieu de fixed */
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+    background-size: auto 100%;
+    background-position: center top;
+  }
+
+  body::before {
+    position: absolute;
+  }
 }
 
 /* Typography */
@@ -123,7 +170,8 @@ h4,
 h5 {
   line-height: 1.2;
   font-weight: 700;
-  color: var(--text-primary);
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
@@ -146,26 +194,27 @@ h5 {
 p {
   margin-bottom: var(--spacing-md);
   line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 a {
-  color: var(--primary);
+  color: rgba(139, 92, 246, 0.9);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--primary-dark);
+  color: rgba(167, 139, 250, 1);
 }
 a:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid rgba(139, 92, 246, 0.8);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 strong {
   font-weight: 600;
-  color: var(--text-primary);
+  color: white;
 }
 
 /* Container */
@@ -312,7 +361,7 @@ strong {
 .home-split-bg {
   position: relative;
   min-height: 100vh;
-  background-image: url('assets/img/beacon_home.jpg');
+  background-image: url("assets/img/beacon_home.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -529,16 +578,28 @@ strong {
    SECTION HERO (Big hero for each section)
    =================================================================== */
 .section-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--primary-dark) 50%,
-    var(--secondary) 100%
-  );
+  /* Plus de gradient, juste un overlay subtil pour lisibilité */
+  background: transparent;
   color: white;
   padding: var(--spacing-xl) 0;
   position: relative;
   overflow: hidden;
+}
+
+/* Overlay léger pour augmenter lisibilité du texte */
+.section-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.75) 0%,
+    rgba(15, 23, 42, 0.65) 40%,
+    rgba(30, 64, 175, 0.55) 70%,
+    rgba(30, 64, 175, 0.45) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -552,6 +613,8 @@ strong {
   flex-direction: column;
   gap: var(--spacing-xl);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -570,6 +633,8 @@ strong {
 .section-hero-text {
   flex: 1;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -669,6 +734,7 @@ strong {
 .section-hero--bd {
   position: relative;
   padding: var(--spacing-xl) 0 0 0 !important;
+  /* Plus de background ici, utilise le body background global */
 }
 
 .section-hero--bd .container {
@@ -676,6 +742,7 @@ strong {
   overflow: visible;
   padding-right: 0 !important;
   padding-bottom: 0 !important;
+  z-index: 1;
 }
 
 .section-hero--bd .section-hero-content {
@@ -694,7 +761,7 @@ strong {
   padding-right: 1.5rem;
   padding-bottom: var(--spacing-xl);
   align-self: center;
-  z-index: 2;
+  z-index: 3;
   position: relative;
 }
 
@@ -714,7 +781,7 @@ strong {
   position: absolute;
   right: -12px;
   bottom: -12px;
-  z-index: 1;
+  z-index: 2;
   margin: 0;
   padding: 0;
   line-height: 0;
@@ -925,11 +992,12 @@ main {
 .section-title {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--text-primary);
+  color: white;
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-sm);
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 3px solid rgba(139, 92, 246, 0.8);
   display: inline-block;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ===================================================================
@@ -996,16 +1064,24 @@ main {
    Cards & Boxes
    =================================================================== */
 .text-box {
-  background: white;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   line-height: 1.8;
+  color: white;
+}
+
+.text-box p {
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .text-box.highlight {
-  border-left: 4px solid var(--primary);
-  background: linear-gradient(to right, rgba(30, 64, 175, 0.03), white);
+  border-left: 4px solid rgba(139, 92, 246, 0.8);
+  background: rgba(139, 92, 246, 0.15);
 }
 
 .skill-card,
@@ -1013,12 +1089,14 @@ main {
 .info-card,
 .project-card,
 .document-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--spacing-lg);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .skill-card:hover,
@@ -1026,14 +1104,15 @@ main {
 .project-card:hover,
 .document-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .skill-card h4,
 .activity-card h4,
 .project-card h4 {
-  color: var(--primary);
+  color: white;
   margin-bottom: var(--spacing-sm);
   font-size: var(--text-lg);
   font-weight: 600;
@@ -1043,7 +1122,7 @@ main {
 .activity-card p,
 .info-card p,
 .project-card p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0;
   font-size: var(--text-sm);
   line-height: 1.6;
@@ -1085,24 +1164,27 @@ main {
    Experience Cards - Premium design
    =================================================================== */
 .experience-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   overflow: hidden;
   margin-bottom: var(--spacing-lg);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all 0.3s ease;
 }
 
 .experience-card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .experience-meta {
-  background: linear-gradient(135deg, var(--bg-lighter) 0%, white 100%);
+  background: rgba(139, 92, 246, 0.2);
   padding: var(--spacing-lg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .date-badge {
@@ -1119,20 +1201,20 @@ main {
 .experience-title {
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--text-primary);
+  color: white;
   margin-bottom: var(--spacing-xs);
 }
 
 .experience-company {
   font-size: var(--text-base);
-  color: var(--primary);
+  color: rgba(167, 139, 250, 1);
   font-weight: 600;
   margin-bottom: var(--spacing-xs);
 }
 
 .location {
   font-size: var(--text-sm);
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
   font-style: italic;
 }
 
@@ -1150,7 +1232,7 @@ main {
   padding-left: 1.5rem;
   margin-bottom: var(--spacing-sm);
   position: relative;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -1158,16 +1240,16 @@ main {
   content: "▸";
   position: absolute;
   left: 0;
-  color: var(--primary);
+  color: rgba(139, 92, 246, 0.9);
   font-weight: bold;
 }
 
 .note {
   margin-top: var(--spacing-md);
   padding-top: var(--spacing-md);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-style: italic;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   font-size: var(--text-sm);
 }
 
@@ -1275,18 +1357,20 @@ main {
    Contact CTA
    =================================================================== */
 .contact-cta {
-  background: white;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--spacing-2xl);
   border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   text-align: center;
-  border: 2px solid var(--primary);
+  border: 2px solid rgba(139, 92, 246, 0.5);
 }
 
 .contact-cta h3 {
   font-size: var(--text-2xl);
   margin-bottom: var(--spacing-lg);
-  color: var(--text-primary);
+  color: white;
 }
 
 .contact-links {
@@ -1301,12 +1385,12 @@ main {
 }
 
 .contact-links a {
-  color: var(--primary);
+  color: rgba(167, 139, 250, 1);
   transition: color 0.2s ease;
 }
 
 .contact-links a:hover {
-  color: var(--primary-dark);
+  color: white;
   text-decoration: underline;
 }
 
@@ -1351,15 +1435,17 @@ main {
    Footer
    =================================================================== */
 .site-footer {
-  background: white;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--spacing-xl) 0;
   text-align: center;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin-top: var(--spacing-3xl);
 }
 
 .site-footer p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   font-size: var(--text-sm);
   margin: 0;
 }
@@ -1369,7 +1455,7 @@ main {
    =================================================================== */
 .text-note {
   font-style: italic;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
   margin-top: var(--spacing-lg);
   font-size: var(--text-sm);
