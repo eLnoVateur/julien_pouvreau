@@ -1221,9 +1221,10 @@ main {
 
 .location {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.95);
+  color: white;
   font-style: italic;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .experience-body {
