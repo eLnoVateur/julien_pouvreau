@@ -11,7 +11,7 @@
   // =====================================================
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
-  const homeNavCards = document.querySelectorAll(".home-nav-card");
+  const homeCards = document.querySelectorAll(".home-card");
 
   // =====================================================
   // Fonction pour activer un onglet
@@ -54,7 +54,7 @@
   // =====================================================
   // Gestionnaire de clic sur les cartes de navigation home
   // =====================================================
-  homeNavCards.forEach((card) => {
+  homeCards.forEach((card) => {
     card.addEventListener("click", function () {
       const targetTab = this.getAttribute("data-target");
       if (targetTab) {

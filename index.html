@@ -55,41 +55,64 @@
     </header>
 
     <main>
-      <!-- HOME TAB -->
+      <!-- HOME TAB - Split page avec fond -->
       <section id="home" class="tab-content active">
-        <div class="container">
-          <div class="home-simple">
-            <h2 class="home-title">Julien Pouvreau</h2>
-            <p class="home-subtitle">
-              Reconversion — Business Developer (Alternance)
-            </p>
-            <p class="home-intro">
-              Après 20 ans de relation client et vente en restauration, je me
-              reconvertis vers le business development. J'apporte rigueur, sens
-              du service, et une solide expérience terrain transférable en B2B.
-            </p>
+        <div class="home-split-bg">
+          <div class="home-split-overlay"></div>
+          <div class="container">
+            <div class="home-split-content">
+              <h1 class="home-split-title">Julien Pouvreau</h1>
+              <p class="home-split-baseline">
+                Relation client • Projets • Outils digitaux
+              </p>
 
-            <div class="home-nav-cards">
-              <button class="home-nav-card" data-target="bd">
-                <div class="home-nav-icon">💼</div>
-                <h3>Business Developer</h3>
-                <p>CV reconversion, compétences B2B</p>
-              </button>
-              <button class="home-nav-card" data-target="hospitality">
-                <div class="home-nav-icon">🍽️</div>
-                <h3>Hôtellerie</h3>
-                <p>20 ans de parcours restauration</p>
-              </button>
-              <button class="home-nav-card" data-target="precursys">
-                <div class="home-nav-icon">⚙️</div>
-                <h3>PrecurSys</h3>
-                <p>Outils digitaux & automatisation</p>
-              </button>
-              <button class="home-nav-card" data-target="portfolio">
-                <div class="home-nav-icon">📁</div>
-                <h3>Portfolio</h3>
-                <p>Documents, projets, réalisations</p>
-              </button>
+              <div class="home-split-text">
+                <p>
+                  <strong>Après 20 ans d'expérience terrain en relation client et vente dans la restauration,</strong>
+                  je me reconvertis vers le business development dans le digital.
+                  Mon parcours m'a permis de développer des compétences clés transférables :
+                  écoute active, identification des besoins clients, argumentation commerciale,
+                  gestion de la pression et travail d'équipe.
+                </p>
+                <p>
+                  Aujourd'hui, je souhaite mettre ces savoir-faire au service d'une entreprise
+                  innovante en tant que Business Developer, tout en continuant à explorer les
+                  outils digitaux (automatisation, analyse de données) qui optimisent les
+                  processus métier.
+                </p>
+              </div>
+
+              <div class="home-split-ctas">
+                <a href="assets/CV-Julien-POUVREAU-BD.pdf" class="btn-primary" download>
+                  Voir les CV
+                </a>
+                <button class="btn-secondary" data-target="portfolio">
+                  Voir le portfolio
+                </button>
+              </div>
+
+              <div class="home-split-cards">
+                <button class="home-card" data-target="bd">
+                  <h3 class="home-card-title">Business Developer</h3>
+                  <p class="home-card-desc">Reconversion digital • Compétences B2B</p>
+                  <span class="home-card-arrow">→</span>
+                </button>
+                <button class="home-card" data-target="hospitality">
+                  <h3 class="home-card-title">Hôtellerie & Restauration</h3>
+                  <p class="home-card-desc">20 ans d'expérience terrain</p>
+                  <span class="home-card-arrow">→</span>
+                </button>
+                <button class="home-card" data-target="precursys">
+                  <h3 class="home-card-title">PrecurSys</h3>
+                  <p class="home-card-desc">Outils digitaux & automatisation</p>
+                  <span class="home-card-arrow">→</span>
+                </button>
+                <button class="home-card" data-target="portfolio">
+                  <h3 class="home-card-title">Portfolio</h3>
+                  <p class="home-card-desc">Documents • Projets • Réalisations</p>
+                  <span class="home-card-arrow">→</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
