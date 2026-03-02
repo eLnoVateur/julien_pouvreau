@@ -1213,44 +1213,606 @@
           </section>
 
           <section class="content-section">
-            <h3 class="section-title">Projets & Réalisations</h3>
+            <h3 class="section-title">Écosystème de Projets</h3>
+            <p
+              style="
+                text-align: center;
+                color: #666;
+                margin-bottom: 2rem;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              Sommaire interactif de l'écosystème technique. Chaque projet, son
+              framework, son état, son ambition.
+            </p>
+
             <div class="project-grid">
-              <div class="project-card">
-                <h4>Landing Page CV (site actuel)</h4>
+              <!-- BEACON -->
+              <div class="project-card" style="border-left: 3px solid #7c5cfc">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🃏</span>
+                  <h4 style="margin: 0">BEACON</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(124, 92, 252, 0.1);
+                      color: #7c5cfc;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >App Mobile</span
+                  >
+                </div>
                 <p>
-                  Hub personnel statique (HTML/CSS/JS vanilla) avec système
-                  d'onglets, responsive, optimisé pour le print.
+                  Application de suivi de rituels quotidiens axée sur
+                  l'introspection honnête. Système de cartes personnelles, mode
+                  jour/nuit, verrouillage anti-addiction, journaling anonyme,
+                  privacy-first.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">React Native</span>
+                  <span class="tag">Expo</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">SQLite</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  Prototype actif
+                </div>
+              </div>
+
+              <!-- nOva Hub -->
+              <div class="project-card" style="border-left: 3px solid #00d4aa">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🖥️</span>
+                  <h4 style="margin: 0">nOva Hub</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(0, 212, 170, 0.1);
+                      color: #00d4aa;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Desktop</span
+                  >
+                </div>
+                <p>
+                  Hub desktop modulaire local : AI Studio (LLM local),
+                  bibliothèque de prompts, atelier SVG, intégration subs2md, et
+                  Slash commands personnalisées.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">Electron</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">SQLite</span>
+                  <span class="tag">Python</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  Fonctionnel
+                </div>
+              </div>
+
+              <!-- precurFood -->
+              <div class="project-card" style="border-left: 3px solid #ff6b6b">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🍳</span>
+                  <h4 style="margin: 0">precurFood</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(255, 107, 107, 0.1);
+                      color: #ff6b6b;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Web App</span
+                  >
+                </div>
+                <p>
+                  Application web de recettes à partir des ingrédients du frigo.
+                  Interface moderne avec backend Supabase.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Tailwind</span>
+                  <span class="tag">Supabase</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #ffd43b;
+                      box-shadow: 0 0 6px #ffd43b;
+                    "
+                  ></span>
+                  En développement
+                </div>
+              </div>
+
+              <!-- precurWatch -->
+              <div class="project-card" style="border-left: 3px solid #ffd43b">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">⌚</span>
+                  <h4 style="margin: 0">precurWatch</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(255, 212, 59, 0.1);
+                      color: #ffd43b;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Web + Python</span
+                  >
+                </div>
+                <p>
+                  Site vitrine boutique de montres au design futuriste,
+                  accompagné d'un outil Gradio de recherche d'images de cadrans
+                  via DuckDuckGo.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">HTML/CSS/JS</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Gradio</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #ffd43b;
+                      box-shadow: 0 0 6px #ffd43b;
+                    "
+                  ></span>
+                  Prototype
+                </div>
+              </div>
+
+              <!-- precurTexT -->
+              <div class="project-card" style="border-left: 3px solid #4dabf7">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">📝</span>
+                  <h4 style="margin: 0">precurTexT</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(77, 171, 247, 0.1);
+                      color: #4dabf7;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Pipeline</span
+                  >
+                </div>
+                <p>
+                  Pipeline d'ingestion multimédia → brouillons → produits
+                  éditoriaux. Flux RSS, scraping web, embeddings MiniLM, LLM
+                  local, exports web/ebook.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">NiceGUI</span>
+                  <span class="tag">ONNX</span>
+                  <span class="tag">Azure Storage</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  Socle livré
+                </div>
+              </div>
+
+              <!-- subs2md -->
+              <div class="project-card" style="border-left: 3px solid #ff922b">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🎬</span>
+                  <h4 style="margin: 0">
+                    subs2md
+                    <span
+                      style="font-size: 0.75rem; font-weight: 400; color: #999"
+                      >— intégration</span
+                    >
+                  </h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(255, 146, 43, 0.1);
+                      color: #ff922b;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >CLI + Web</span
+                  >
+                </div>
+                <p>
+                  Déploiement et intégration dans nOva Hub de cet outil de
+                  récupération de sous-titres YouTube (yt-dlp), avec interface
+                  Flask personnalisée.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Flask</span>
+                  <span class="tag">yt-dlp</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  Fonctionnel
+                </div>
+              </div>
+
+              <!-- Landing Page CV -->
+              <div class="project-card" style="border-left: 3px solid #e599f7">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">👤</span>
+                  <h4 style="margin: 0">C.V Landing (ce site)</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(229, 153, 247, 0.1);
+                      color: #e599f7;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Statique</span
+                  >
+                </div>
+                <p>
+                  Site personnel multi-profils — onglets Business Developer,
+                  Hôtellerie, PrecurSys, Portfolio. Zéro dépendance :
+                  HTML/CSS/JS pur.
                 </p>
                 <div class="tech-tags">
                   <span class="tag">HTML5</span>
                   <span class="tag">CSS3</span>
                   <span class="tag">JavaScript</span>
                 </div>
-              </div>
-              <div class="project-card">
-                <h4>Outils de productivité PrecurSys</h4>
-                <p>
-                  Scripts et templates pour automatiser la recherche
-                  d'informations, structurer des contenus commerciaux et
-                  optimiser les workflows de prospection.
-                </p>
-                <div class="tech-tags">
-                  <span class="tag">IA générative</span>
-                  <span class="tag">Prompting</span>
-                  <span class="tag">Automatisation</span>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  En ligne
                 </div>
               </div>
-              <div class="project-card">
-                <h4>Documentation & méthodes</h4>
+
+              <!-- @RAINmeter -->
+              <div class="project-card" style="border-left: 3px solid #69db7c">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🎨</span>
+                  <h4 style="margin: 0">@RAINmeter</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(105, 219, 124, 0.1);
+                      color: #69db7c;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Widgets</span
+                  >
+                </div>
                 <p>
-                  Création de guides méthodologiques pour l'organisation du
-                  travail, la définition d'objectifs et le suivi d'indicateurs
-                  de performance.
+                  Collection de skins Rainmeter pour Windows : lecteur YouTube
+                  Music (mpv), outils ImageMagick (redimensionnement,
+                  conversion, montages).
                 </p>
                 <div class="tech-tags">
-                  <span class="tag">Organisation</span>
-                  <span class="tag">Rigueur</span>
-                  <span class="tag">Amélioration continue</span>
+                  <span class="tag">Rainmeter</span>
+                  <span class="tag">Lua</span>
+                  <span class="tag">ImageMagick</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #00d4aa;
+                      box-shadow: 0 0 6px #00d4aa;
+                    "
+                  ></span>
+                  Fonctionnel
+                </div>
+              </div>
+
+              <!-- Tools -->
+              <div class="project-card" style="border-left: 3px solid #ff922b">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">🔧</span>
+                  <h4 style="margin: 0">Tools</h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(255, 146, 43, 0.1);
+                      color: #ff922b;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Utilitaires</span
+                  >
+                </div>
+                <p>
+                  Répertoire d'utilitaires : formatage d'espaces blancs,
+                  générateur de cartes SVG via Inkscape, scaffold de templates
+                  SVG.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Inkscape CLI</span>
+                  <span class="tag">SVG</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #ff922b;
+                      box-shadow: 0 0 6px #ff922b;
+                    "
+                  ></span>
+                  Utilitaires
+                </div>
+              </div>
+
+              <!-- APPRENDRE -->
+              <div class="project-card" style="border-left: 3px solid #ffd43b">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <span style="font-size: 1.6rem">📚</span>
+                  <h4 style="margin: 0">
+                    APPRENDRE
+                    <span
+                      style="font-size: 0.75rem; font-weight: 400; color: #999"
+                      >— parcours</span
+                    >
+                  </h4>
+                  <span
+                    style="
+                      font-size: 0.7rem;
+                      background: rgba(255, 212, 59, 0.1);
+                      color: #ffd43b;
+                      padding: 3px 8px;
+                      border-radius: 999px;
+                      margin-left: auto;
+                    "
+                    >Learning</span
+                  >
+                </div>
+                <p>
+                  Ressources pédagogiques en cours : 30 Days of JS/Python/React
+                  (Asabeneh Yetayeh), ML For Beginners (Microsoft),
+                  buildYOU-ebook.
+                </p>
+                <div class="tech-tags">
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">React</span>
+                  <span class="tag">ML</span>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                    color: #666;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #4dabf7;
+                      box-shadow: 0 0 6px #4dabf7;
+                    "
+                  ></span>
+                  Parcours en cours
                 </div>
               </div>
             </div>

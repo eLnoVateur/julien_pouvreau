@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nOva — Sommaire Projets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ═══════════════════════════════════════════
+       RESET & VARIABLES
+    ═══════════════════════════════════════════ */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #0a0a0f;
+        --bg-card: #12121a;
+        --bg-hover: #1a1a26;
+        --border: #1e1e2e;
+        --text: #e4e4ef;
+        --text-dim: #8888a0;
+        --accent-1: #7c5cfc; /* violet  */
+        --accent-2: #00d4aa; /* émeraude */
+        --accent-3: #ff6b6b; /* corail  */
+        --accent-4: #ffd43b; /* doré    */
+        --accent-5: #4dabf7; /* bleu    */
+        --accent-6: #ff922b; /* orange  */
+        --accent-7: #e599f7; /* lilas   */
+        --accent-8: #69db7c; /* vert    */
+        --radius: 12px;
+        --radius-sm: 6px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* ═══════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════ */
+      .hero {
+        position: relative;
+        padding: 80px 24px 60px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background:
+          radial-gradient(
+            ellipse at 30% 20%,
+            rgba(124, 92, 252, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 70% 80%,
+            rgba(0, 212, 170, 0.06) 0%,
+            transparent 50%
+          );
+        animation: drift 20s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        to {
+          transform: translate(-3%, 2%) rotate(2deg);
+        }
+      }
+
+      .hero h1 {
+        position: relative;
+        font-size: clamp(2.4rem, 6vw, 4.5rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        background: linear-gradient(
+          135deg,
+          var(--accent-1) 0%,
+          var(--accent-2) 50%,
+          var(--accent-5) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 16px;
+      }
+
+      .hero .subtitle {
+        position: relative;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        color: var(--text-dim);
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+
+      .hero .author {
+        position: relative;
+        display: inline-block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        color: var(--accent-2);
+        background: rgba(0, 212, 170, 0.08);
+        border: 1px solid rgba(0, 212, 170, 0.2);
+        padding: 6px 18px;
+        border-radius: 999px;
+        letter-spacing: 0.05em;
+      }
+
+      /* ═══════════════════════════════════════════
+       FILTERS
+    ═══════════════════════════════════════════ */
+      .filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 24px 48px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .filter-btn {
+        font-family: "Inter", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text-dim);
+        cursor: pointer;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        color: #fff;
+        background: var(--accent-1);
+        border-color: var(--accent-1);
+      }
+
+      /* ═══════════════════════════════════════════
+       GRID
+    ═══════════════════════════════════════════ */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 24px;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+      }
+
+      /* ═══════════════════════════════════════════
+       CARD
+    ═══════════════════════════════════════════ */
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--card-accent, var(--accent-1));
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        border-color: var(--card-accent, var(--accent-1));
+        background: var(--bg-hover);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .card-icon {
+        font-size: 1.6rem;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: rgba(124, 92, 252, 0.1);
+        flex-shrink: 0;
+      }
+
+      .card-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(124, 92, 252, 0.12);
+        color: var(--card-accent, var(--accent-1));
+        border: 1px solid rgba(124, 92, 252, 0.2);
+        white-space: nowrap;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      .card-desc {
+        font-size: 0.9rem;
+        color: var(--text-dim);
+        line-height: 1.65;
+        flex: 1;
+      }
+
+      .card-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tech-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-dim);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: var(--transition);
+      }
+
+      .card:hover .tech-tag {
+        border-color: rgba(255, 255, 255, 0.12);
+        color: var(--text);
+      }
+
+      .card-status {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .status-dot.active {
+        background: var(--accent-2);
+        box-shadow: 0 0 6px var(--accent-2);
+      }
+      .status-dot.prototype {
+        background: var(--accent-4);
+        box-shadow: 0 0 6px var(--accent-4);
+      }
+      .status-dot.docs {
+        background: var(--accent-5);
+        box-shadow: 0 0 6px var(--accent-5);
+      }
+      .status-dot.data {
+        background: var(--accent-6);
+        box-shadow: 0 0 6px var(--accent-6);
+      }
+
+      /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+      .footer {
+        text-align: center;
+        padding: 40px 24px;
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        border-top: 1px solid var(--border);
+      }
+
+      .footer span {
+        color: var(--accent-1);
+      }
+
+      /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          padding: 20px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       ANIMATION ENTRÉE
+    ═══════════════════════════════════════════ */
+      .card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: cardIn 0.5s ease forwards;
+      }
+
+      @keyframes cardIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .card:nth-child(7) {
+        animation-delay: 0.35s;
+      }
+      .card:nth-child(8) {
+        animation-delay: 0.4s;
+      }
+      .card:nth-child(9) {
+        animation-delay: 0.45s;
+      }
+      .card:nth-child(10) {
+        animation-delay: 0.5s;
+      }
+      .card:nth-child(11) {
+        animation-delay: 0.55s;
+      }
+
+      /* hidden par filtre */
+      .card.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ════════════════════ HERO ════════════════════ -->
+    <section class="hero">
+      <h1>nOva — Projets</h1>
+      <p class="subtitle">
+        Sommaire interactif de l'écosystème technique. Chaque projet, son
+        framework, son état, son ambition.
+      </p>
+      <span class="author">@el_novateur</span>
+    </section>
+
+    <!-- ════════════════════ FILTERS ════════════════════ -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="app-mobile">Mobile</button>
+      <button class="filter-btn" data-filter="app-desktop">Desktop</button>
+      <button class="filter-btn" data-filter="app-web">Web</button>
+      <button class="filter-btn" data-filter="outil">Outils & Pipelines</button>
+      <button class="filter-btn" data-filter="business">Business</button>
+      <button class="filter-btn" data-filter="widgets">Widgets</button>
+      <button class="filter-btn" data-filter="learning">Apprentissage</button>
+    </div>
+
+    <!-- ════════════════════ GRID ════════════════════ -->
+    <main class="grid" id="projectGrid">
+      <!-- ───── BEACON ───── -->
+      <article
+        class="card"
+        data-category="app-mobile"
+        style="--card-accent: var(--accent-1)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(124, 92, 252, 0.12)">
+            🃏
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-1);
+              border-color: rgba(124, 92, 252, 0.25);
+            "
+            >App Mobile</span
+          >
+        </div>
+        <h2 class="card-title">BEACON</h2>
+        <p class="card-desc">
+          Application de suivi de rituels quotidiens axée sur l'introspection
+          honnête. Système de cartes personnelles, mode jour/nuit, verrouillage
+          anti-addiction, journaling anonyme, privacy-first.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">React Native 0.81</span>
+          <span class="tech-tag">Expo 54</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">SQLite</span>
+          <span class="tech-tag">Playwright</span>
+          <span class="tech-tag">Jest</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Prototype actif — Architecture documentée, tests e2e en place
+        </div>
+      </article>
+
+      <!-- ───── nOva Hub (Electron) ───── -->
+      <article
+        class="card"
+        data-category="app-desktop"
+        style="--card-accent: var(--accent-2)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(0, 212, 170, 0.12)">
+            🖥️
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-2);
+              border-color: rgba(0, 212, 170, 0.25);
+            "
+            >App Desktop</span
+          >
+        </div>
+        <h2 class="card-title">nOva Hub</h2>
+        <p class="card-desc">
+          Hub desktop modulaire local : AI Studio (LLM local via llama_cpp),
+          bibliothèque de prompts, atelier de cartes SVG (Inkscape/Python),
+          intégration subs2md, et Slash commands personnalisées.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Electron 38</span>
+          <span class="tech-tag">Vite 7</span>
+          <span class="tech-tag">better-sqlite3</span>
+          <span class="tech-tag">node-llama-cpp</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Whisper</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Fonctionnel — Architecture modulaire active
+        </div>
+      </article>
+
+      <!-- ───── precurFood ───── -->
+      <article
+        class="card"
+        data-category="app-web"
+        style="--card-accent: var(--accent-3)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 107, 107, 0.12)">
+            🍳
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-3);
+              border-color: rgba(255, 107, 107, 0.25);
+            "
+            >App Web</span
+          >
+        </div>
+        <h2 class="card-title">precurFood</h2>
+        <p class="card-desc">
+          Application web de recettes à partir des ingrédients du frigo.
+          Interface moderne générée via Lovable.dev avec backend Supabase.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">shadcn/ui</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Supabase</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot prototype"></span>
+          En développement — Scaffold Lovable, intégration en cours
+        </div>
+      </article>
+
+      <!-- ───── precurWatch ───── -->
+      <article
+        class="card"
+        data-category="app-web"
+        style="--card-accent: var(--accent-4)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 212, 59, 0.12)">
+            ⌚
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-4);
+              border-color: rgba(255, 212, 59, 0.25);
+            "
+            >App Web + Python</span
+          >
+        </div>
+        <h2 class="card-title">precurWatch</h2>
+        <p class="card-desc">
+          Site vitrine / boutique de montres au design futuriste (Prism Flux),
+          accompagné d'un outil Gradio (Python) de recherche d'images de cadrans
+          via DuckDuckGo.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">HTML / CSS / JS</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Gradio</span>
+          <span class="tech-tag">Pillow</span>
+          <span class="tech-tag">DuckDuckGo API</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot prototype"></span>
+          Prototype — Maquette boutique + outil image
+        </div>
+      </article>
+
+      <!-- ───── precurTexT ───── -->
+      <article
+        class="card"
+        data-category="outil"
+        style="--card-accent: var(--accent-5)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(77, 171, 247, 0.12)">
+            📝
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-5);
+              border-color: rgba(77, 171, 247, 0.25);
+            "
+            >Pipeline Éditorial</span
+          >
+        </div>
+        <h2 class="card-title">precurTexT</h2>
+        <p class="card-desc">
+          Pipeline d'ingestion multimédia → brouillons → produits éditoriaux.
+          Flux RSS, scraping web, embeddings MiniLM, LLM local (Qwen GGUF),
+          exports web statique / ebook. Stockage Azure Blob.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">NiceGUI</span>
+          <span class="tech-tag">ONNX Runtime</span>
+          <span class="tech-tag">llama_cpp</span>
+          <span class="tech-tag">Azure Storage</span>
+          <span class="tech-tag">feedparser</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Socle livré — Roadmap active (multimédia, tagging, exports)
+        </div>
+      </article>
+
+      <!-- ───── subs2md ───── -->
+      <article
+        class="card"
+        data-category="outil"
+        style="--card-accent: var(--accent-6)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 146, 43, 0.12)">
+            🎬
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-6);
+              border-color: rgba(255, 146, 43, 0.25);
+            "
+            >Outil CLI + Web</span
+          >
+        </div>
+        <h2 class="card-title">subs2md</h2>
+        <p class="card-desc">
+          Récupération de sous-titres YouTube (officiels ou auto-générés) via
+          yt-dlp, nettoyage, filtrage par mots-clés, export Markdown structuré
+          avec métadonnées et prompts. Serveur Flask pour l'interface web.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">yt-dlp</span>
+          <span class="tech-tag">tiktoken</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Fonctionnel — Intégré dans nOva Hub
+        </div>
+      </article>
+
+      <!-- ───── C.V Landing ───── -->
+      <article
+        class="card"
+        data-category="app-web"
+        style="--card-accent: var(--accent-7)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(229, 153, 247, 0.12)">
+            👤
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-7);
+              border-color: rgba(229, 153, 247, 0.25);
+            "
+            >Site Statique</span
+          >
+        </div>
+        <h2 class="card-title">C.V Landing</h2>
+        <p class="card-desc">
+          Site personnel multi-profils pour Julien Pouvreau — onglets Business
+          Developer, Hôtellerie, PrecurSys, Portfolio. Zéro dépendance, zéro
+          framework : HTML/CSS/JS pur.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Fonctionnel — Déployable
+        </div>
+      </article>
+
+      <!-- ───── Capsule / CINTR ───── -->
+      <article
+        class="card"
+        data-category="business"
+        style="--card-accent: var(--accent-3)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 107, 107, 0.12)">
+            👗
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-3);
+              border-color: rgba(255, 107, 107, 0.25);
+            "
+            >Entrepreneuriat</span
+          >
+        </div>
+        <h2 class="card-title">Capsule / CINTR</h2>
+        <p class="card-desc">
+          Startup SaaS — garde-robe numérique intelligente. Digitalisation des
+          vêtements, IA de suggestions de tenues, marketplace mode durable.
+          Business plan complet, pitch deck React livré.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">React (TSX)</span>
+          <span class="tech-tag">Business Plan</span>
+          <span class="tech-tag">Pitch Deck</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot docs"></span>
+          Phase business plan — Documentation fournie
+        </div>
+      </article>
+
+      <!-- ───── @RAINmeter ───── -->
+      <article
+        class="card"
+        data-category="widgets"
+        style="--card-accent: var(--accent-8)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(105, 219, 124, 0.12)">
+            🎨
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-8);
+              border-color: rgba(105, 219, 124, 0.25);
+            "
+            >Widgets Desktop</span
+          >
+        </div>
+        <h2 class="card-title">@RAINmeter</h2>
+        <p class="card-desc">
+          Collection de skins Rainmeter pour Windows : lecteur YouTube Music
+          (backend mpv), outils ImageMagick (redimensionnement, conversion,
+          grilles de montages), démo images.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Rainmeter (INI/Lua)</span>
+          <span class="tech-tag">ImageMagick</span>
+          <span class="tech-tag">mpv</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot active"></span>
+          Fonctionnel
+        </div>
+      </article>
+
+      <!-- ───── Tools ───── -->
+      <article
+        class="card"
+        data-category="outil"
+        style="--card-accent: var(--accent-6)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 146, 43, 0.12)">
+            🔧
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-6);
+              border-color: rgba(255, 146, 43, 0.25);
+            "
+            >Scripts Utilitaires</span
+          >
+        </div>
+        <h2 class="card-title">Tools</h2>
+        <p class="card-desc">
+          Répertoire d'utilitaires : formatage d'espaces blancs (Python),
+          générateur de cartes SVG via Inkscape, scaffold de templates SVG.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Inkscape CLI</span>
+          <span class="tech-tag">SVG</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot data"></span>
+          Utilitaires ponctuels
+        </div>
+      </article>
+
+      <!-- ───── APPRENDRE ───── -->
+      <article
+        class="card"
+        data-category="learning"
+        style="--card-accent: var(--accent-4)"
+      >
+        <div class="card-header">
+          <div class="card-icon" style="background: rgba(255, 212, 59, 0.12)">
+            📚
+          </div>
+          <span
+            class="card-badge"
+            style="
+              color: var(--accent-4);
+              border-color: rgba(255, 212, 59, 0.25);
+            "
+            >Apprentissage</span
+          >
+        </div>
+        <h2 class="card-title">APPRENDRE</h2>
+        <p class="card-desc">
+          Ressources pédagogiques actives : 30 Days of JavaScript, 30 Days of
+          Python, 30 Days of React, ML For Beginners (Microsoft),
+          buildYOU-ebook.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Machine Learning</span>
+        </div>
+        <div class="card-status">
+          <span class="status-dot docs"></span>
+          Parcours en cours
+        </div>
+      </article>
+    </main>
+
+    <!-- ════════════════════ FOOTER ════════════════════ -->
+    <footer class="footer">
+      <p><span>nOva</span> · Sommaire Projets · Février 2026</p>
+      <p style="margin-top: 6px">
+        Fichier unique HTML — aucune dépendance externe (hors fonts)
+      </p>
+    </footer>
+
+    <!-- ════════════════════ SCRIPT ════════════════════ -->
+    <script>
+      /* ── Filtrage par catégorie ── */
+      const btns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".card");
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+
+          cards.forEach((card, i) => {
+            const show = filter === "all" || card.dataset.category === filter;
+            card.classList.toggle("hidden", !show);
+            if (show) {
+              card.style.animation = "none";
+              card.offsetHeight; // reflow
+              card.style.animation = `cardIn .4s ease forwards`;
+              card.style.animationDelay = `${i * 0.04}s`;
+            }
+          });
+        });
+      });
+
+      /* ── Compteur visible dans le titre ── */
+      const updateCount = () => {
+        const visible = document.querySelectorAll(".card:not(.hidden)").length;
+        document.title = `nOva — ${visible} projet${visible > 1 ? "s" : ""}`;
+      };
+      btns.forEach((b) =>
+        b.addEventListener("click", () => setTimeout(updateCount, 10)),
+      );
+      updateCount();
+    </script>
+  </body>
+</html>
